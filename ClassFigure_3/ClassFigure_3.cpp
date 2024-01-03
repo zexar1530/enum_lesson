@@ -58,7 +58,8 @@ class RightTriangle : public Triangle
 private:
     bool Check() override
     {
-        if ((C == 90) && (A + B + C == 180)) return 1;
+        if (!Triangle::Check()) return 0; //если не треугольник вообще то прекращаем проверки
+        if (C == 90) return 1;
         return 0;
     }
 public:
@@ -73,7 +74,8 @@ class IsosTriangle : public Triangle
 private:
     bool Check() override
     {
-        if ((C == A) && (a == c) && (A + B + C == 180)) return 1;
+        if (!Triangle::Check()) return 0;
+        if ((C == A) && (a == c)) return 1;
         return 0;
     }
 public:
@@ -88,7 +90,8 @@ class EquilTriangle : public IsosTriangle
 private:
     bool Check() override
     {
-        if (a == c && c == b) return 1;
+        if (!Triangle::Check()) return 0;
+        if (c == b && a == c) return 1;
         return 0;
     }
 public:
@@ -159,7 +162,7 @@ class Paralelogram : public Quadrangle
 private:
     bool Check() override
     {
-        if ((A == C) && (B == D) && (a == c) && (b == d) && ((A + B + C + D) == 360)) return 1;
+        if ((A == C) && (B == D) && (a == c) && (b == d) && (Quadrangle::Check())) return 1;
         return 0;
     }
 public:
@@ -174,7 +177,7 @@ class Rhombus : public Paralelogram
 private:
     bool Check() override
     {
-        if ((A == C) && (B == D) && ((A + B + C + D) == 360)) return 1;
+        if ((A == C) && (B == D) && (Quadrangle::Check())) return 1;
         return 0;
     }
 public:
@@ -199,7 +202,6 @@ int main()
 
     RightTriangle righttriagle(10, 20, 30, 50, 40); //прямоугольный
     p_figure = &righttriagle;
- //   righttriagle.Print_Info(); Почему через указатель на базовый класс доступно поле protected?
     p_figure->Print_Info();     
 
     IsosTriangle isostriangle(10, 20, 10, 50, 60, 50); //равнобедренный
