@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <string>
+#include <fstream>
 using namespace std;
 
 //----------------------Класс фигуры----------------------------------------
@@ -111,6 +112,7 @@ protected:
         if ((A + B + C + D) == 360) return 1;
         return 0;
     };
+public:
     void Print_Info() override
     {
         cout << name << ": " << endl;
@@ -231,6 +233,7 @@ int main()
     Rhombus rhombus(30, 30, 40);                        //Ромб
     p_figure = &rhombus;
     p_figure->Print_Info();
+
 
     return 0;
 }
