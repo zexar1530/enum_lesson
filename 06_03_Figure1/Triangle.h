@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include "Figure.h"
+#include "Figure_Exception.h"
 
 using namespace std;
 

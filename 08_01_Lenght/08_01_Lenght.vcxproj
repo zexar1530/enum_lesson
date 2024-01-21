@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{1de1c02e-3fb2-42a6-8099-45c15460688b}</ProjectGuid>
-    <RootNamespace>My0603Figure1</RootNamespace>
+    <ProjectGuid>{1905d93c-9e62-4ff3-877c-75c586b7d8e4}</ProjectGuid>
+    <RootNamespace>My0801Lenght</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,24 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="06_03_Figure1.cpp" />
-    <ClCompile Include="RightQuadrangle.cpp" />
-    <ClCompile Include="Rombus.cpp" />
-    <ClCompile Include="Figure.cpp" />
-    <ClCompile Include="Triangle.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Figure.h" />
-    <ClInclude Include="Equil.h" />
-    <ClInclude Include="Figure_Exception.h" />
-    <ClInclude Include="IsosTriangle.h" />
-    <ClInclude Include="Quadrangle.h" />
-    <ClInclude Include="Paralelogram.h" />
-    <ClInclude Include="RightQuadrangle.h" />
-    <ClInclude Include="Righttriangle.h" />
-    <ClInclude Include="Rombus.h" />
-    <ClInclude Include="Square.h" />
-    <ClInclude Include="Triangle.h" />
+    <ClCompile Include="08_01_Lenght.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

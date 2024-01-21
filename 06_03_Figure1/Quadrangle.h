@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include "Figure.h"
+#include "Figure_Exception.h"
 
 using namespace std;
 //-------------------------------Класс четырехугольник---------------------------------
@@ -15,6 +16,7 @@ public:
     {
         name = "Четырехугольник";
         side = 4;
+        if (!((A + B + C + D) == 360)) throw Figure_Exeption("Ошибка создания фигуры. Причина: сумма углов не равна 360");
     }
     void Print_Info() override
     {

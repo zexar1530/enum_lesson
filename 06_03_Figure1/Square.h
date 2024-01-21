@@ -8,5 +8,6 @@ public:
     Square(int a) : RightQuadrangle(a, a, 90)
     {
         name = " вадрат";
+        if (!((a - b + c - d) == 0)) throw Figure_Exeption("все стороны не равны ");
     }
 };

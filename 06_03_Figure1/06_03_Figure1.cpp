@@ -17,33 +17,88 @@ using namespace std;
 int main()
 {
     setlocale(LC_ALL, "rus");
+    try
+    {
+        Triangle triangle(10, 20, 30, 50, 60, 70);      //треугольник
+        triangle.Print_Info();
+    }
+    catch (Figure_Exeption& err)
+    {
+        cout << err.what() << endl;
+    }
+    try
+    {
+        RightTriangle righttriagle(10, 20, 30, 50, 40); //прямоугольный
+        righttriagle.Print_Info();
+    }
+    catch (Figure_Exeption& err)
+    {
+        cout << err.what() << endl;
+    }
+    try
+    {
+        IsosTriangle isostriangle(10, 20, 10, 50, 80, 50); //равнобедренный
+        isostriangle.Print_Info();
+    }
+    catch (Figure_Exeption& err)
+    {
+        cout << err.what() << endl;
+    }
+    try
+    {
+        EquilTriangle equiltriangle(30);                    //равносторонний
+        equiltriangle.Print_Info();
+    }
+    catch (Figure_Exeption& err)
+    {
+        cout << err.what() << endl;
+    }
+    try
+    {
+        Quadrangle quadrangle(10, 20, 30, 40, 50, 60, 70, 80);  //четырехугольник
+        quadrangle.Print_Info();
+    }
+    catch (Figure_Exeption& err)
+    {
+        cout << err.what() << endl;
+    }
+    try
+    {
+        RightQuadrangle rightquadrangle(10, 20, 90);        //прямоугольник
+        rightquadrangle.Print_Info();
+    }
+    catch (Figure_Exeption& err)
+    {
+        cout << err.what() << endl;
+    }
 
-    Triangle triangle(10, 20, 30, 50, 60, 70);      //треугольник
-    triangle.Print_Info();
-
-    RightTriangle righttriagle(10, 20, 30, 50, 60); //прямоугольный
-    righttriagle.Print_Info();
-
-    IsosTriangle isostriangle(10, 20, 10, 50, 60, 50); //равнобедренный
-    isostriangle.Print_Info();
-
-    EquilTriangle equiltriangle(30);                    //равносторонний
-    equiltriangle.Print_Info();
-
-    Quadrangle quadrangle(10, 20, 30, 40, 50, 60, 70, 80);  //четырехугольник
-    quadrangle.Print_Info();
-
-    RightQuadrangle rightquadrangle(10, 20, 90);        //прямоугольник
-    rightquadrangle.Print_Info();
-
-    Square square(20);                                  //квадрат
-    square.Print_Info();
-
-    Paralelogram paralelogram(20, 30, 30, 40);          //Паралелограм
-    paralelogram.Print_Info();
-
-    Rhombus rhombus(30, 30, 40);                        //Ромб
-    rhombus.Print_Info();
+    try
+    {
+        Square square(20);                                  //квадрат
+        square.Print_Info();
+    }
+    catch (Figure_Exeption& err)
+    {
+        cout << err.what() << endl;
+    }
+    try
+    {
+        Paralelogram paralelogram(20, 30, 30, 40);          //Паралелограм
+        paralelogram.Print_Info();
+    }
+    catch(Figure_Exeption& err)
+    {
+        cout << err.what() << endl;
+    }
+    try
+    {
+        Rhombus rhombus(30, 90, 90);                        //Ромб
+        rhombus.Print_Info();
+    }
+    catch (Figure_Exeption& err)
+    {
+        cout << err.what() << endl;
+    }
 
     return 0;
 }

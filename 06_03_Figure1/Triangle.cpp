@@ -4,6 +4,8 @@ Triangle::Triangle(int a, int b, int c, int A, int B, int C) : a{ a }, b{ b }, c
 {
     name = "Треугольник";
     side = 3;
+    if((A + B + C) != 180)
+        throw Figure_Exeption ("Ошибка создания фигуры. Причина: сумма углов не равна 180 ");
 }
 
 void Triangle::Print_Info()
