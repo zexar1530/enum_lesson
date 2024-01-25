@@ -54,28 +54,28 @@ public:
 	{
 		return (static_cast<double>(numerator_ / denominator_) >= static_cast<double>(fraction.numerator_ / fraction.denominator_));
 	}
-	const Fraction& operator+(const Fraction& fraction)
+	Fraction operator+(const Fraction& fraction)
 	{
 		int common_denominator = denominator_ * fraction.denominator_;
 		int common_numerator = (numerator_ * fraction.denominator_) + (denominator_ * fraction.numerator_);
 		CheckFraction(common_numerator, common_denominator);
 		return Fraction(common_numerator, common_denominator);
 	}
-	const Fraction& operator-(const Fraction& fraction)
+	Fraction operator-(const Fraction& fraction)
 	{
 		int common_denominator = denominator_ * fraction.denominator_;
 		int common_numerator = (numerator_ * fraction.denominator_) - (denominator_ * fraction.numerator_);
 		CheckFraction(common_numerator, common_denominator);
 		return Fraction(common_numerator, common_denominator);
 	}
-	Fraction operator*(const Fraction& fraction)
+	Fraction operator*(const Fraction& fraction)	
 	{
 		int common_denominator = denominator_ * fraction.denominator_;
 		int common_numerator = numerator_ * fraction.numerator_;
 		CheckFraction(common_numerator, common_denominator);			//проверяем и при неоходимости сокращаем
 		return Fraction(common_numerator, common_denominator);
 	}
-	const Fraction& operator/(const Fraction& fraction)
+	Fraction operator/(const Fraction& fraction)
 	{
 		int common_denominator = denominator_ * fraction.numerator_;
 		int common_numerator = numerator_ * fraction.denominator_;
@@ -86,7 +86,7 @@ public:
 	{
 		numerator_ = numerator_ + denominator_;
 		CheckFraction(numerator_, denominator_);
-		return Fraction(numerator_, denominator_);
+		return *this;// Fraction(numerator_, denominator_);
 	}
 	Fraction operator--(int)
 	{
@@ -100,8 +100,6 @@ public:
 int main()
 {
 	setlocale(LC_ALL, "rus");
-
-	cout << 6 % 2 << endl;
 
 	int a_1{}, b_1{}, a_2{}, b_2{};				//дроби
 

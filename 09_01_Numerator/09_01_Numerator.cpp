@@ -14,9 +14,12 @@ public:
 	}
 	bool operator==(const Fraction& fraction) const
 	{
-		return (numerator_ == fraction.numerator_) && (denominator_ == fraction.denominator_);
+		return (static_cast<double>(numerator_ / denominator_) == static_cast<double>(fraction.numerator_ / fraction.denominator_));
 	}
-	bool operator!=(const Fraction& fraction) const = default;			// через default получилось только здесь? Почему не получается с остальными не пойму(((((?
+	const bool operator!=(const Fraction& fraction)
+	{
+		return (static_cast<double>(numerator_ / denominator_) != static_cast<double>(fraction.numerator_ / fraction.denominator_));
+	}
 	bool operator<(const Fraction& fraction) const
 	{
 		return (static_cast<double>(numerator_ / denominator_) < static_cast<double>(fraction.numerator_ / fraction.denominator_));
@@ -38,7 +41,7 @@ public:
 int main()
 {
 	Fraction f1(4, 3);
-	Fraction f2(6, 11);
+	Fraction f2(8, 6);
 
 	std::cout << "f1" << ((f1 == f2) ? " == " : " not == ") << "f2" << '\n';
 	std::cout << "f1" << ((f1 != f2) ? " != " : " not != ") << "f2" << '\n';
