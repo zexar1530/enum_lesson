@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\zexar\Documents\Мои проекты С++\zexar1530\Cmake\CMakeFiles\690d130c85b3e2015ed5c627a67dac7d\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{69EF048D-BFD6-32C0-A4E9-0DFC634077A3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
