@@ -1,8 +1,28 @@
 #include "TrCamal.h"
 
-TrCamal::TrCamal(int distanse, int type_race) : Transport("Верблюд", type_race)
+TrCamal::TrCamal(const int distanse, const int type_race) : Transport("Верблюд", distanse)
 {
+	if (!((this->type_race == type_race) || (type_race == 3)))
+		throw std::runtime_error("Неверный тип транспортного средства!\n");
 	if (create)	throw std::runtime_error("Верблюд уже зарегистрирован!\n");
-	this->distanse = distanse;
 	create = true;
+	Result();
+}
+
+void TrCamal::Result()
+{
+	double time = distanse / speed;			//время без остановок
+	double rest = time / driving_time;				//количество отдыхов на дистанции
+	if (time >= driving_time)
+	{
+		for (int i{}; i < rest; i++)
+		{
+			if (i == 0) result_time = result_time + 5;
+			else
+				result_time = result_time + 8;
+		}
+		result_time = result_time + int(time);
+	}
+	else
+		result_time = time;
 }

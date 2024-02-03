@@ -2,6 +2,7 @@
 #include <vector>
 #include "Transport.h"
 #include "TrCamal.h"
+#include "BroomStick.h"
 
 using namespace std;
 
@@ -34,14 +35,25 @@ int main()
 			switch (RegistryTransport(transport))
 			{
 			case 1:
-				int i;								//как ыть в этом месте, если инициализирую то ругается компилятор
+				int i;								//как быть в этом месте, если инициализирую то ругается компилятор?
 				do
 				{
 					i = PrintMenuChoise(distance, tr, transport);
 					switch (i)
 					{
-					case 1:
 					case 2:
+						try
+						{
+							transport.push_back(BroomStick(distance, tr));
+						}
+						catch (const std::runtime_error& e)
+						{
+							cout << e.what();
+						}
+						break;
+					case 5:
+					case 7: 
+						break;
 					case 3:
 						try
 						{
@@ -51,13 +63,15 @@ int main()
 						{
 							cout << e.what();
 						}
-						
 						break;
 					case 0:
 						break;
 					}
 				} while (i);
 			case 2:
+				break;
+			case 3:
+				break;
 			default:
 				break;
 			}
@@ -109,6 +123,12 @@ int PrintMenuChoise(const int& dist, const int& tr, const vector<Transport> &t)
 	default: break;
 	}
 	cout << tip_race << "Расстояние: " << dist << endl;
+	cout << "Зарегистрируемые транспортные средства: ";
+	for (Transport var : t)
+	{
+		cout << var.name << " ";
+	}
+	cout << endl;
 	cout << "1. Ботинки вездеходы\n";
 	cout << "2. Метла\n";
 	cout << "3. Верлюд\n";
@@ -116,7 +136,6 @@ int PrintMenuChoise(const int& dist, const int& tr, const vector<Transport> &t)
 	cout << "5. Орел\n";
 	cout << "6. Верблюд-быстроход\n";
 	cout << "7. Ковер-самолет\n";
-	cout << "2. Метла\n";
 	cout << "0. Закончить регистрацию\n";
 	cout << "Выерите транспорт или 0 для окончания процесса регистрации: ";
 	int i{};

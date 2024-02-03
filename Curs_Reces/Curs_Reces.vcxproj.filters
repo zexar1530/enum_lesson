@@ -24,12 +24,18 @@
     <ClCompile Include="TrCamal.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="BroomStick.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Transport.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="TrCamal.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="BroomStick.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
