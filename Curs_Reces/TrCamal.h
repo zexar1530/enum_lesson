@@ -15,6 +15,5 @@ private:
 public:
 	TrCamal(const int distanse, const int type_race);
 	void Result() override;			//функция расчета пробега
-//	virtual void PrintResult();		//вывод результата на консоль
 };
 

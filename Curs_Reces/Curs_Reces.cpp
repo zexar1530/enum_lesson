@@ -3,6 +3,11 @@
 #include "Transport.h"
 #include "TrCamal.h"
 #include "BroomStick.h"
+#include "Magic_Car.h"
+#include "Eagle.h"
+#include "fastCamal.h"
+#include "Boots.h"
+#include "Cenyuar.h"
 
 using namespace std;
 
@@ -30,17 +35,28 @@ int main()
 	}
 		cout << "Укажите длинну дистанции (должна быть положительна): ";
 		cin >> distance;
-		while(true)
+		bool race{ true };
+		while(race)
 		{
 			switch (RegistryTransport(transport))
 			{
 			case 1:
 				int i;								//как быть в этом месте, если инициализирую то ругается компилятор?
-				do
+				do                                  //переменную i использую и для switch и while
 				{
 					i = PrintMenuChoise(distance, tr, transport);
 					switch (i)
 					{
+					case 1:
+						try
+						{
+							transport.push_back(Boots(distance, tr));
+						}
+						catch (const std::runtime_error& e)
+						{
+							cout << e.what();
+						}
+						break;
 					case 2:
 						try
 						{
@@ -51,8 +67,35 @@ int main()
 							cout << e.what();
 						}
 						break;
+					case 6:
+						try
+						{
+							transport.push_back(fastCamal(distance, tr));
+						}
+						catch (const std::runtime_error& e)
+						{
+							cout << e.what();
+						}
+						break;
 					case 5:
+						try
+						{
+							transport.push_back(Eagle(distance, tr));
+						}
+						catch (const std::runtime_error& e)
+						{
+							cout << e.what();
+						}
+						break;
 					case 7: 
+						try
+						{
+							transport.push_back(Magic_Car(distance, tr));
+						}
+						catch (const std::runtime_error& e)
+						{
+							cout << e.what();
+						}
 						break;
 					case 3:
 						try
@@ -64,13 +107,45 @@ int main()
 							cout << e.what();
 						}
 						break;
+					case 4:
+						try
+						{
+							transport.push_back(Cenyuar(distance, tr));
+						}
+						catch (const std::runtime_error& e)
+						{
+							cout << e.what();
+						}
+						break;
 					case 0:
 						break;
 					}
 				} while (i);
-			case 2:
 				break;
-			case 3:
+			case 2:
+				cout << "Результаты гонки:\n";
+				for (int i{}; i < transport.size()-1; i++)				//сравниваем и перестраиваем Vector
+				{
+					Transport t{ "",0 };								//временный обьект класса для замены
+					for (int j{}; j < transport.size() - 1; j++)
+					{
+						if (transport[j].result_time > transport[j + 1].result_time)
+						{
+							t = transport[j];
+							transport[j] = transport[j + 1];
+							transport[j + 1] = t;
+						}
+					}
+				}
+				for (Transport var : transport) cout << var.name << ": " << " Время: " << var.result_time << endl;
+				cout << "1. Провести еще одну гонку\n";
+				cout << "2. Выйти\n";
+				cout << "Выберите дейтсвие ";
+				int x;									//вот, опять не могу инициализировать переменную!!!?????
+				cin >> x;
+				if (x == 2) return 0;
+				transport.clear();						//очистка контейнера
+				race = false;
 				break;
 			default:
 				break;

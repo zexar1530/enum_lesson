@@ -6,8 +6,14 @@ BroomStick::BroomStick(const int distanse, const int type_race) : Transport("Мет
 		throw std::runtime_error("Неверный тип транспортного средства!\n");
 	if (create)	throw std::runtime_error("Метла уже зарегистрирована!\n");
 	create = true;
+	Result();
 }
 
 void BroomStick::Result()
 {
+	int temp = distanse - (distanse % 1000);
+	int koff{};
+	for (int i{}; i < temp / 1000; i++) koff += 1;
+	distanse = distanse - (distanse * koff / 100);
+	result_time = distanse / speed;
 }

@@ -11,11 +11,12 @@ TrCamal::TrCamal(const int distanse, const int type_race) : Transport("Верблюд",
 
 void TrCamal::Result()
 {
-	double time = distanse / speed;			//время без остановок
-	double rest = time / driving_time;				//количество отдыхов на дистанции
+	int time = distanse / speed;			//время без остановок
+	int temp = time % driving_time;
+	int rest = (time - temp) / driving_time;				//количество отдыхов на дистанции
 	if (time >= driving_time)
 	{
-		for (int i{}; i < rest; i++)
+		for (int i{}; i < rest-1; i++)
 		{
 			if (i == 0) result_time = result_time + 5;
 			else
