@@ -8,7 +8,6 @@
 #include "fastCamal.h"
 #include "Boots.h"
 #include "Cenyuar.h"
-#include "Temp.h"
 
 using namespace std;
 
@@ -129,15 +128,15 @@ int main()
 				cout << "Результаты гонки:\n";
 				for (int i{}; i < transport.size() - 1; i++)				//сравниваем и перестраиваем Vector
 				{
-					//Transport* t{new Transport { "",0 } }; временный обьект класса для замены невозможно создать так как он абстрактный
-					Transport* t{ new Temp(0) };		//С абстракцией пришлось так. Может можно еще как что ббы для обмена не создавать временный класс?
+					//Transport* t;
 					for (int j{}; j < transport.size() - 1; j++)
 					{
 						if (transport[j]->result_time > transport[j + 1]->result_time)
 						{
-							*t = *transport[j];
-							*transport[j] = *transport[j + 1];
-							*transport[j + 1] = *t;
+							swap(transport[j], transport[j + 1]);		//спасибо за совет!!! и так и так работает
+							//t = transport[j];
+							//transport[j] = transport[j + 1];
+							//transport[j + 1] = t;
 						}
 					}
 				}

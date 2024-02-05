@@ -1,0 +1,6 @@
+cmake_minimum_required (VERSION 3.22)
+project (Races)
+set (CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+add_library (Rases_Tr SHARED Transport.h Transport.cpp Eagle.h Eagle.cpp fastCamal.h fastCamal.cpp Magic_Car.h Magic_car.cpp TrCamal.h TrCamal.cpp Boots.h Boots.cpp BroomStick.h BroomStick.cpp Cenyuar.h Cenyuar.cpp)
+add_executable (Races Curs_Reces.cpp)
+target_link_libraries(Races Rases_Tr)

@@ -1,0 +1,4 @@
+C:/Users/zexar/Documents/Мои проекты С++/zexar1530/curs_races_fix/out/build/x64-Debug/CMakeFiles/Rases_Tr.dir
+C:/Users/zexar/Documents/Мои проекты С++/zexar1530/curs_races_fix/out/build/x64-Debug/CMakeFiles/Races.dir
+C:/Users/zexar/Documents/Мои проекты С++/zexar1530/curs_races_fix/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+C:/Users/zexar/Documents/Мои проекты С++/zexar1530/curs_races_fix/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir

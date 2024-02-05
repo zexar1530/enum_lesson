@@ -15,19 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Curs_Reces.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Transport.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="TrCamal.cpp">
+    <ClCompile Include="Boots.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="BroomStick.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Magic_Car.cpp">
+    <ClCompile Include="Cenyuar.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Curs_Reces.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Eagle.cpp">
@@ -36,24 +33,24 @@
     <ClCompile Include="fastCamal.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Cenyuar.cpp">
+    <ClCompile Include="Magic_Car.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Boots.cpp">
+    <ClCompile Include="Transport.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="TrCamal.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Transport.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="TrCamal.h">
+    <ClInclude Include="Boots.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="BroomStick.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Magic_Car.h">
+    <ClInclude Include="Cenyuar.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Eagle.h">
@@ -62,10 +59,13 @@
     <ClInclude Include="fastCamal.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Cenyuar.h">
+    <ClInclude Include="Magic_Car.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Boots.h">
+    <ClInclude Include="Transport.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="TrCamal.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
