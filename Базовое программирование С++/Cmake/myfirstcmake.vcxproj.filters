@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\zexar\Documents\Мои проекты С++\zexar1530\Cmake\my_first_cmake_program.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\zexar\Documents\Мои проекты С++\zexar1530\Cmake\CMakelists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{603C6A2B-56DD-3A4C-A4F8-366E18035D0C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

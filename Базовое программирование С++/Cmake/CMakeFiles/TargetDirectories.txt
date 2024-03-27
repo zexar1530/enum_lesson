@@ -1,0 +1,3 @@
+C:/Users/zexar/Documents/Мои проекты С++/zexar1530/Cmake/CMakeFiles/myfirstcmake.dir
+C:/Users/zexar/Documents/Мои проекты С++/zexar1530/Cmake/CMakeFiles/ALL_BUILD.dir
+C:/Users/zexar/Documents/Мои проекты С++/zexar1530/Cmake/CMakeFiles/ZERO_CHECK.dir

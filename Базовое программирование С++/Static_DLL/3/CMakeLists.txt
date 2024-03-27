@@ -1,0 +1,6 @@
+cmake_minimum_required (VERSION 3.20)
+project (dlllib)
+set (CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+add_library (leaverdll SHARED leaver.h leaver.cpp)
+add_executable (dlllibexe dll_client.cpp)
+target_link_libraries (dlllibexe leaverdll)
