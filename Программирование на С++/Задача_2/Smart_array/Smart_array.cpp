@@ -26,11 +26,11 @@ int main()
 		std::cout << arr.get_element(1) << std::endl;
 
 		smart_array move_arr(std::move(arr));
-		std::cout << new_array.get_element(0) << std::endl;
+		std::cout << move_arr.get_element(0) << std::endl;
 
 
 	}
-	catch (const std::exception& ex) {
+	catch (const std::runtime_error& ex) {
 		std::cout << ex.what() << std::endl;
 	}
 }

@@ -3,17 +3,19 @@
 class smart_array
 {
 public:
-	smart_array(int size) :size{ size }, p_arr{ new int[size] {} } {};		//конструктор
-	smart_array(smart_array&) = delete;									//конструктора копирования не будет
-	smart_array(smart_array&& old_arr) {								//конструктор перемещения
+explicit	smart_array(int size) :size{ size }, p_arr{ new int[size] {} } {};		//конструктор
+	smart_array(smart_array&) = delete;											//конструктора копирования не будет
+	smart_array(smart_array&& old_arr) noexcept {								//конструктор перемещения
 		std::cout << "MOVE\n";
 		index = old_arr.index;
 		size = old_arr.size;
-		delete[] p_arr;
-		p_arr = new int[size];
-		for (int i{}; i < size; i++)p_arr[i] = old_arr.p_arr[i];
-		delete[] old_arr.p_arr;
-		old_arr.p_arr = nullptr;
+//		delete[] p_arr;
+//		p_arr = new int[size];
+		p_arr = old_arr.p_arr;							//попробую просто присвоить указатель
+		old_arr.p_arr = nullptr;						//рушим старый офис)))))))))
+//		for (int i{}; i < size; i++)p_arr[i] = old_arr.p_arr[i];
+//		delete[] old_arr.p_arr;
+//		old_arr.p_arr = nullptr;
 	};
 
 //добавление элемента в конец
@@ -26,7 +28,7 @@ public:
 			int size_tmp = size + 5;
 			int* p_tmp{ new int[size_tmp] {} };
 			for (int i{}; i < size; i++) {			//копируем наш массив во временный
-				p_tmp[i] = p_arr[i];		//Почему пишет переполнение буфера????? не могу понять
+				p_tmp[i] = p_arr[i];		
 			}
 			delete[] p_arr;					//удаляем старый массив
 			p_arr = nullptr;
@@ -38,7 +40,7 @@ public:
 	};
 //возврат элемента по индексу
 	int get_element(int index) {
-		if (size <= index) throw std::exception("Не существующий индекс");
+		if (size <= index||index<0) throw std::runtime_error("Не существующий или отрицательный индекс");
 		return p_arr[index];
 	};
 //деструктор
@@ -47,13 +49,16 @@ public:
 		delete[] p_arr;
 	};
 
-	smart_array& operator=(smart_array& copy) {
-		std::cout << "copy\n";
-		size = copy.size;			//присваеваем новые размер и положение индекса
-		index = copy.index;
-		delete[] p_arr;				//удаляем старый массив
-		p_arr = new int[size];		//создаем новый и переписываем туда элементы
-		for (int i{}; i < size; i++)p_arr[i] = copy.p_arr[i];
+	smart_array& operator=(const smart_array& copy) {
+		if (this != &copy) {
+			std::cout << "copy\n";
+			size = copy.size;			//присваеваем новые размер и положение индекса
+			index = copy.index;
+			delete[] p_arr;				//удаляем старый массив
+			p_arr = new int[size];		//создаем новый и переписываем туда элементы
+			for (int i{}; i < size; i++)p_arr[i] = copy.p_arr[i];
+			return *this;
+		}
 		return *this;
 	}
 
