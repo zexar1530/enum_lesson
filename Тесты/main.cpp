@@ -108,3 +108,21 @@ TEST_CASE( "EMPTY SIZE CLEAR", "EMPTY" ) {
         REQUIRE(l.Size() == 0);
     }
 }
+
+TEST_CASE("PUSHBACK PUSHFRONT POPBACK POPFRONT", "[PUSHBACK]") {
+    List l;
+    l.PushBack(5);
+    REQUIRE(l.Size() == 1);
+    REQUIRE(l.PopBack() == 5);
+    SECTION("[PUSHFRONT]") {
+        l.PushFront(10);
+        REQUIRE(l.PopFront() == 10);
+    }
+    SECTION("[POPBACK]") {
+        REQUIRE(l.PopBack());
+        REQUIRE(l.PopFront());
+    }
+    SECTION("[POPFRONT]") {
+        REQUIRE(l.PopFront());
+    }
+}
