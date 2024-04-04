@@ -1,7 +1,0 @@
-# ninja log v5
-15	443	7280451399717143	CMakeFiles/Figure.dir/Figure.cpp.obj	3713d781b9320cb6
-4	729	7280451402557779	CMakeFiles/Figure.dir/06_03_Figure1.cpp.obj	a1c22db27ea5ce86
-43	734	7280451402627796	CMakeFiles/Figure.dir/Rombus.cpp.obj	46c63ccc60f6cb75
-62	737	7280451402677802	CMakeFiles/Figure.dir/Triangle.cpp.obj	a287ba29ca7bfc8c
-28	770	7280451403008020	CMakeFiles/Figure.dir/RightQuadrangle.cpp.obj	9cf7bd6012078abd
-770	1305	7280451408127017	Figure.exe	accf161d498d1c54

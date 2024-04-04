@@ -1,3 +1,0 @@
-C:/Users/zexar/Documents/Мои проекты С++/zexar1530/Figure_Cmake/out/build/x64-Debug/CMakeFiles/Figure.dir
-C:/Users/zexar/Documents/Мои проекты С++/zexar1530/Figure_Cmake/out/build/x64-Debug/CMakeFiles/edit_cache.dir
-C:/Users/zexar/Documents/Мои проекты С++/zexar1530/Figure_Cmake/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir

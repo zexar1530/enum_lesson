@@ -1,3 +1,0 @@
-C:/Users/zexar/Documents/Мои проекты С++/zexar1530/my_first_cmake/out/build/x64-Debug/CMakeFiles/myfirstcmake.dir
-C:/Users/zexar/Documents/Мои проекты С++/zexar1530/my_first_cmake/out/build/x64-Debug/CMakeFiles/edit_cache.dir
-C:/Users/zexar/Documents/Мои проекты С++/zexar1530/my_first_cmake/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
