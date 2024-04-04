@@ -1,0 +1,69 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Races",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Races::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Races-Debug-7a352f94742f7bf3a696.json",
+					"name" : "Races",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Rases_Tr::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Rases_Tr-Debug-eee0add1ebe3d5798f8a.json",
+					"name" : "Rases_Tr",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/zexar/Documents/\u041c\u043e\u0438 \u043f\u0440\u043e\u0435\u043a\u0442\u044b \u0421++/zexar1530/\u0411\u0430\u0437\u043e\u0432\u043e\u0435 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u0421++/curs_races_fix/out/build/x64-Debug",
+		"source" : "C:/Users/zexar/Documents/\u041c\u043e\u0438 \u043f\u0440\u043e\u0435\u043a\u0442\u044b \u0421++/zexar1530/\u0411\u0430\u0437\u043e\u0432\u043e\u0435 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u0421++/curs_races_fix"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

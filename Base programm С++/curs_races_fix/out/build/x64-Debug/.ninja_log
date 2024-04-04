@@ -1,0 +1,14 @@
+# ninja log v5
+84	1376	7289135054584061	CMakeFiles/Rases_Tr.dir/Boots.cpp.obj	3b10d6d769042aed
+28	1385	7289135054650130	CMakeFiles/Rases_Tr.dir/Eagle.cpp.obj	bc0623d4b1e4c69b
+98	1386	7289135054695217	CMakeFiles/Rases_Tr.dir/BroomStick.cpp.obj	8b14b60557b599cb
+11	1392	7289135054797224	CMakeFiles/Rases_Tr.dir/Transport.cpp.obj	62db69a2d7eb3506
+44	1395	7289135054858280	CMakeFiles/Rases_Tr.dir/fastCamal.cpp.obj	7024eae75225b562
+57	1403	7289135054964154	CMakeFiles/Rases_Tr.dir/Magic_Car.cpp.obj	da51ff65450cddd3
+112	1432	7289135055235632	CMakeFiles/Rases_Tr.dir/Cenyuar.cpp.obj	98c93d666656d91e
+127	1533	7289135056282659	CMakeFiles/Races.dir/Curs_Reces.cpp.obj	38cd4cb5e6ed2897
+23	1130	7289135714501762	CMakeFiles/Rases_Tr.dir/TrCamal.cpp.obj	f6a77d9ca1d33e4b
+8	1049	7289135906815752	CMakeFiles/Rases_Tr.dir/Transport.cpp.obj	62db69a2d7eb3506
+1050	1698	7289135913176864	Rases_Tr.dll	e1dde8897fca3252
+1050	1698	7289135913176864	Rases_Tr.lib	e1dde8897fca3252
+1699	2158	7289135917737251	Races.exe	912491f1f29665d3

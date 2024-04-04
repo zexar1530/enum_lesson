@@ -1,0 +1,4 @@
+cmake_minimum_required(VERSION 3.10)
+project(Figure)
+set (myfiles 06_03_Figure1.cpp Figure.cpp RightQuadrangle.cpp Rombus.cpp Triangle.cpp)
+add_executable(Figure ${myfiles})
