@@ -13,11 +13,11 @@ using namespace std;
 //	for (auto& v : vec) { v = v * v; }
 //}
 
-template<class Type> Type Sqrt(Type val) {
+template<class Type> Type Sqrt(Type& val) {
 	return val * val;
 }
 
-template<class TypeVector> vector<TypeVector>& Sqrt(vector<TypeVector>& vec) {
+template<class TypeVector> vector<TypeVector> Sqrt(vector<TypeVector>& vec) {
 	for (auto& v : vec) { v = v * v; };
 	return vec;
 }
