@@ -18,8 +18,11 @@ template<class Type> Type Sqrt(Type& val) {
 }
 
 template<class TypeVector> vector<TypeVector> Sqrt(vector<TypeVector>& vec) {
-	for (auto& v : vec) { v = v * v; };
-	return vec;
+	vector<TypeVector> vec_new;
+	for (int i{}; i<vec.size(); i++) {
+		vec_new.push_back(vec.at(i) * vec.at(i));
+	}
+	return vec_new;
 }
 
 template<class T> T Func(T& t) {			//Почему не разрешает вернуть ссылку T&?
