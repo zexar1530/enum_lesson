@@ -48,7 +48,7 @@ int main()
 	int i{ 4 };
 	auto res{ Func(i) };
 	cout << "OUT:\t" << res << endl;
-	vector<double> vec{ -1, 4, 8 };
+	vector<int> vec{ -1, 4, 8 };
 	cout << "IN:\t";
 	for (const auto v : vec) { cout << v << " "; };
 	cout << endl;
