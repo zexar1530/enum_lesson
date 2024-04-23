@@ -30,7 +30,8 @@ public:
 
    BigInteger& operator = (BigInteger&& moved) noexcept { //перемещающий оператор
        cout << "Оператор перемещения\n";
-       *this = move(moved);
+       this->digit = move(moved.digit);
+    //   *this = move(moved);
        return *this;
    }
 
@@ -85,6 +86,9 @@ int main()
     BigInteger b{ "78524" };
     auto c = a + b;
     cout << c << endl;
+    BigInteger x("114575");
+    BigInteger y;
+    y = std::move(x);
     return 0;
   
 }
