@@ -6,16 +6,14 @@
 #include <iostream>
 #include "IniParser.h"
 
-//------------------------Хоть стреляйте, не могу русский язык поброть!!!! все просторы интернета облазил!!!!((((-----------
 
-static bool iskey(std::string& c) {
+static bool iskey(const std::wstring c) {
     return isalnum(c[0], std::locale("Russian")) || ispunct(c[0]);    //если цифра, буква или знак пунктуации то true
 }
 
-static bool isval(std::string& c) {
+static bool isval(const std::wstring c) {
     return isalnum(c[0], std::locale("Russian")) || ispunct(c[0]) || isblank(c[0]);  //добавляем пробел или табуляцию
 }
-//--------------------------------------------------------------------------------------------------------------------------
 
 IniParser::IniParser(const std::string& path) {
 
@@ -27,20 +25,20 @@ IniParser::IniParser(const std::string& path) {
         skipline    
     } state = State::init;  //по умолчанию
 
-    std::ifstream f(path);              //Открываем файл
+    std::wifstream f(path);              //Открываем файл
     if (!f.is_open()) {
         throw std::runtime_error("Файл не найден или ошибка открытия");
     }
 
-    std::vector<char> buf;          //ставил int and unsigned char все равно с русским не помогает!
-    std::string section, key;
-    std::string c;
+    std::vector<wchar_t> buf;          //ставил int and unsigned char все равно с русским не помогает!
+    std::wstring section, key;
+    std::wstring c;
 
     //лямбда формирования сообщения об ошике
     //очень нравится использовать лямбду)))), хотя мог бы просто кидать Throw, хотя второй вариант проще
     auto err = [&f, &c, &path](const std::string& section) {
         std::ostringstream strm;
-        strm << "Неверный символ '" << c[0] << "'(" << static_cast<int>(c[0]) << ") в флаге = " << section << ", в файле " << path << ":" << f.tellg();
+        strm << "Неверный символ '" << static_cast<char>(c[0]) << "'(" << static_cast<int>(c[0]) << ") в флаге = " << section << ", в файле " << path << ":" << f.tellg();
         throw std::runtime_error(strm.str());
         };
 
@@ -71,7 +69,7 @@ IniParser::IniParser(const std::string& path) {
             break;
         case State::section:
             if (c[0] == ']') {                                        //если конец секции
-                section = std::string(buf.begin(), buf.end());      //копируем имя, очищаем вектор, меняем флаг и крутим до конца строки
+                section = std::wstring(buf.begin(), buf.end());      //копируем имя, очищаем вектор, меняем флаг и крутим до конца строки
                 buf.clear();
                 state = State::skipline;
             }
@@ -84,7 +82,7 @@ IniParser::IniParser(const std::string& path) {
             break;
         case State::key:
             if (c[0] == '=') {
-                key = std::string(buf.begin(), buf.end());
+                key = std::wstring(buf.begin(), buf.end());
                 buf.clear();
                 state = State::value;
             }
@@ -103,9 +101,10 @@ IniParser::IniParser(const std::string& path) {
                 }
                 catch (const std::runtime_error& e)
                 {
-                    std::cout << e.what() << " в " << section << " " << key << std::endl;
+                    std::cout << e.what();
+                    std::wcout << " в " << section << " " << key << std::endl;
                 }
-                inimap[section][key] = std::string(buf.begin(), buf.end());
+                inimap[section][key] = std::wstring(buf.begin(), buf.end());
                 buf.clear();
                 if (c[0] == ';') state = State::skipline;
                 else state = State::init;
