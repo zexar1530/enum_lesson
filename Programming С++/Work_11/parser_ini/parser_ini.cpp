@@ -3,7 +3,8 @@
 #include "IniParser.h"
 
 int main() {
-	setlocale(LC_ALL, "rus");
+//	setlocale(LC_ALL, "rus");
+	std::locale::global(std::locale("ru_RU.UTF-8"));    //да уж)))))))
 	try {
 		IniParser parser("test.ini");
 		auto res1{ parser.get<std::wstring>(L"var2", L"Section2") };

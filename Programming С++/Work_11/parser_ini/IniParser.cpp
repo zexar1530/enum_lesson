@@ -8,11 +8,11 @@
 
 
 static bool iskey(const std::wstring c) {
-    return isalnum(c[0], std::locale("Russian")) || ispunct(c[0]);    //если цифра, буква или знак пунктуации то true
+    return isalnum(c[0]/*, std::locale("Russian")*/) || ispunct(c[0]);    //если цифра, буква или знак пунктуации то true
 }
 
 static bool isval(const std::wstring c) {
-    return isalnum(c[0], std::locale("Russian")) || ispunct(c[0]) || isblank(c[0]);  //добавл€ем пробел или табул€цию
+    return isalnum(c[0]/*, std::locale("Russian")*/) || ispunct(c[0]) || isblank(c[0]);  //добавл€ем пробел или табул€цию
 }
 
 IniParser::IniParser(const std::string& path) {
@@ -30,7 +30,7 @@ IniParser::IniParser(const std::string& path) {
         throw std::runtime_error("‘айл не найден или ошибка открыти€");
     }
 
-    std::vector<wchar_t> buf;          //ставил int and unsigned char все равно с русским не помогает!
+    std::vector<wchar_t> buf;          
     std::wstring section, key;
     std::wstring c;
 
@@ -97,12 +97,12 @@ IniParser::IniParser(const std::string& path) {
             if (c[0] == '\n' || c[0] == ';') {
                 try
                 {
-                    if (buf.empty()) throw std::runtime_error("Ќет значени€");
+                    if (buf.empty()) throw std::runtime_error("No value");
                 }
                 catch (const std::runtime_error& e)
                 {
                     std::cout << e.what();
-                    std::wcout << " в " << section << " " << key << std::endl;
+                    std::wcout << L" в " << section << L" " << key << std::endl;
                 }
                 inimap[section][key] = std::wstring(buf.begin(), buf.end());
                 buf.clear();
