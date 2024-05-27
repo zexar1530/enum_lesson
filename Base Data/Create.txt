@@ -1,0 +1,53 @@
+--таблица названий жанров
+create table if not exists Genre(
+Id integer primary key,
+Name_genre varchar(30) not null unique
+);
+
+--таблица имен исполнителей
+create table if not exists Single(
+Id integer primary key,
+Name_single varchar(30) unique not null
+);
+
+--таблица многие ко многим, соединяем жанры и исполнителей
+create table if not exists Genre_Single(
+Id serial primary key,
+Id_single integer references Single, --не указывал поле(по умолчанию Primary key)
+Id_genre integer references Genre(Id) --a тут указал(как правильнее не знаю!)))
+);
+
+--таблица названий альбомов
+create table if not exists Albom(
+Name_albom text primary key,
+Data_albom date not null
+);
+
+--таблица многие ко многим, соединяем исполнителя и альбом
+create table if not exists Albom_Single(
+Name_single integer references Single(Id),
+Name_albom text references Albom(Name_albom),
+constraint pk_AlbomSingle primary key(Name_single, Name_albom)
+);
+
+--таблица трек, один ко многим
+create table if not exists Track(
+Id integer primary key,
+Name_track varchar(40) not null,
+Duration time not null,
+Id_albom text not null references Albom
+);
+
+--создаем таблицу Сборник))))
+create table if not exists Collection(	--Collector убрал)))))))
+Id integer primary key,
+Make_data date not null,
+Name_collection varchar(50) not null
+);
+
+create table if not exists Collection_Track(
+Id serial primary key,
+Id_collection integer not null references Collection,
+Id_track integer not null references Track
+);
+

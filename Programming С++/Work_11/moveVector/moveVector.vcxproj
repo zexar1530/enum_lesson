@@ -70,12 +70,33 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\Qt\Librery_Boost\boost_1_83_0\boost_1_83_0;C:\Qt\Librery_Boost\boost_1_83_0\boost_1_83_0\boost_mingw_64_qt\include\boost-1_83;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Qt\Librery_Boost\boost_1_83_0\boost_1_83_0\libs;$(LibraryPath)</LibraryPath>
+    <ExternalIncludePath>C:\Qt\Librery_Boost\boost_1_83_0\boost_1_83_0\boost;$(ExternalIncludePath)</ExternalIncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>C:\Qt\Librery_Boost\boost_1_83_0\boost_1_83_0;C:\Qt\Librery_Boost\boost_1_83_0\boost_1_83_0\boost_mingw_64_qt\include\boost-1_83;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Qt\Librery_Boost\boost_1_83_0\boost_1_83_0\libs;$(LibraryPath)</LibraryPath>
+    <ExternalIncludePath>C:\Qt\Librery_Boost\boost_1_83_0\boost_1_83_0\boost;$(ExternalIncludePath)</ExternalIncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\Qt\Librery_Boost\boost_1_83_0\boost_1_83_0;C:\Qt\Librery_Boost\boost_1_83_0\boost_1_83_0\boost_mingw_64_qt\include\boost-1_83;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Qt\Librery_Boost\boost_1_83_0\boost_1_83_0\libs;$(LibraryPath)</LibraryPath>
+    <ExternalIncludePath>C:\Qt\Librery_Boost\boost_1_83_0\boost_1_83_0\boost;$(ExternalIncludePath)</ExternalIncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>C:\Qt\Librery_Boost\boost_1_83_0\boost_1_83_0;C:\Qt\Librery_Boost\boost_1_83_0\boost_1_83_0\boost_mingw_64_qt\include\boost-1_83;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Qt\Librery_Boost\boost_1_83_0\boost_1_83_0\libs;$(LibraryPath)</LibraryPath>
+    <ExternalIncludePath>C:\Qt\Librery_Boost\boost_1_83_0\boost_1_83_0\boost;$(ExternalIncludePath)</ExternalIncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -90,6 +111,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -104,6 +126,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -118,6 +141,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

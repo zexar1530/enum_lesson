@@ -1,0 +1,107 @@
+--заполняем таюлицу Genre
+insert into genre values (1,'Жанр1');
+insert into genre values (2,'Жанр2');
+insert into genre values (3,'Жанр3');
+
+--заполняем Singler
+insert into single  values (1,'Исполнитель1');
+insert into single  values (2,'Исполнитель2');
+insert into single  values (3,'Исполнитель3');
+insert into single  values (4,'Исполнитель4');
+
+--заполняем связанную таблицу genre_single
+insert into genre_single(id_genre, id_single) values(1,1);
+insert into genre_single(id_genre, id_single) values(1,3);
+insert into genre_single(id_genre, id_single) values(2,2);
+insert into genre_single(id_genre, id_single) values(2,4);
+insert into genre_single(id_genre, id_single) values(3,3);
+
+--заполняем Albom
+insert into albom values ('Альбом1', '2017.01.01');
+insert into albom values ('Альбом2', '2019.01.01');
+insert into albom values ('Альбом3', '2020.01.01');
+
+--заполним таблицу track
+insert into track values (1, 'Мой трек1', '2:00', 'Альбом3');
+insert into track values (2, 'Мой трек2', '2:30', 'Альбом3');
+insert into track values (3, 'Трек1', '3:50', 'Альбом2');
+insert into track values (4, 'Трек1', '6:00', 'Альбом2');
+insert into track values (5, 'Мой трек3', '5:50', 'Альбом1');
+insert into track values (6, 'Мой трек7', '2:45', 'Альбом1');
+
+--заполним collection
+insert into collection  values (1, '2017.02.02', 'Сборник1');
+insert into collection  values (2, '2018.02.02', 'Сборник2');
+insert into collection  values (4, '2018.02.02', 'Сборник3');
+insert into collection  values (5, '2020.02.02', 'Сборник6');
+
+--заполним albom_single
+insert into albom_single values (1, 'Альбом1');
+insert into albom_single values (2, 'Альбом1');
+insert into albom_single values (3, 'Альбом2');
+insert into albom_single values (4, 'Альбом3');
+
+--ну и крайняя таблица collection_track
+insert into collection_track(id_collection, id_track) values (1, 1); 
+insert into collection_track(id_collection, id_track) values (1, 4); 
+insert into collection_track(id_collection, id_track) values (2, 2);
+insert into collection_track(id_collection, id_track) values (2, 4); 
+insert into collection_track(id_collection, id_track) values (4, 5); 
+insert into collection_track(id_collection, id_track) values (5, 6);
+
+--выводим максимальную длинну трека. Как то можно вывести проще кажется?
+select name_track, duration  from track
+where duration=(select max(duration) from track); 
+
+--Название треков, продолжительность которых не менее 3,5 минут
+select name_track, duration
+from track
+where duration > '3:5';
+
+--Названия сборников, вышедших в период с 2018 по 2020 годы включительно
+select name_collection, make_data 
+from collection
+where make_data between '2018-01-01' and '2020-01-01';
+
+--Исполнители, чьё имя состоит из одного слова
+select name_single 
+from single
+where name_single not like '% %';
+
+--Название треков, которые содержат слова «мой» или «my»
+select name_track 
+from track
+where name_track like '%Мой%';
+
+--Количество исполнителей в каждом жанре
+select name_genre, count(single.name_single) 
+from genre
+join genre_single on genre.id = genre_single.id_genre
+join single on genre_single.id_single = single.id
+group by name_genre;
+
+--Количество треков, вошедших в альбомы 2019–2020 годов
+select albom.name_albom, albom.data_albom, count(track.name_track) 
+from albom
+join track ON albom.name_albom = track.id_albom 
+group by albom.name_albom
+having albom.data_albom between '2019-01-01' and '2020-01-01';
+
+--Средняя продолжительность треков по каждому альбому
+select albom.name_albom, avg(track.duration)
+from albom
+join track ON track.id_albom  = albom.name_albom
+group by albom.name_albom;
+
+--Все исполнители, которые не выпустили альбомы в 2020 году
+select name_single 
+from single
+where single.name_single not in (select single.name_single from single
+								join albom_single on albom_single.name_single = single.id 
+								join albom on albom.name_albom = albom_single.name_albom 
+								where albom.data_albom = '2020-01-01');--что то много написал!!!
+								--не могу сообразить как упростить?
+								
+
+
+

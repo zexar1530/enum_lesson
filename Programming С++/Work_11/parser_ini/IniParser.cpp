@@ -124,4 +124,19 @@ IniParser::IniParser(const std::string& path) {
     if (state != State::init) {
         err("Достигнут конец файла");
     }
+};
+
+template<>
+int IniParser::get<int>(const std::wstring& key, const std::wstring& section) const {
+    return std::stoi(inimap.at(section).at(key));
+}
+
+template<>
+double IniParser::get<double>(const std::wstring& key, const std::wstring& section) const {
+    return std::stod(inimap.at(section).at(key));
+}
+
+template<>
+std::wstring IniParser::get<std::wstring>(const std::wstring& key, const std::wstring& section) const {
+    return inimap.at(section).at(key);
 }
