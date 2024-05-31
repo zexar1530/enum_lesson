@@ -33,10 +33,12 @@ class Book
 public:
 	string title{ "" };
 	Wt::Dbo::ptr<Publisher> id_publisher;
+	Wt::Dbo::collection<Wt::Dbo::ptr<Stock>> stocks;
 	template<class A>
 	void persist(A& a) {
 		Wt::Dbo::field(a, title, "title");
 		Wt::Dbo::belongsTo(a, id_publisher, "id_publisher");
+		Wt::Dbo::hasMany(a, stocks, Wt::Dbo::ManyToOne, "id_book");
 	}
 	static void addBook(const string& title, const string& id_publisher, Wt::Dbo::Session& session) {
 		Wt::Dbo::Transaction tr(session);
@@ -57,15 +59,15 @@ public:
 	template <class A>
 	void persist(A& a) {
 		Wt::Dbo::field(a, name, "name");
-		Wt::Dbo::hasMany(a, stocks, Wt::Dbo::ManyToMany, "id_shop");
+		Wt::Dbo::hasMany(a, stocks, Wt::Dbo::ManyToOne, "id_shop");
 	};
-	/*static void addPublisher(const string& name, Wt::Dbo::Session& session) {
+	static void addShop(const string& name, Wt::Dbo::Session& session) {
 		Wt::Dbo::Transaction tr(session);
 		unique_ptr<Shop> shop{ new Shop() };
 		shop->name = name;
-		Wt::Dbo::ptr<Shop> shop = session.add(move(shop));
+		Wt::Dbo::ptr<Shop> p_shop = session.add(move(shop));
 		tr.commit();
-	}*/
+	}
 };
 //---------------------------------------------------------------------
 class Stock
@@ -139,6 +141,11 @@ int main()
 			Book::addBook("Unknow3", "AAA", session);
 			Book::addBook("Unknow1", "CCC", session);
 
+			//-------------fill table Shop-----------------------------
+			Shop::addShop("shop1", session);
+			Shop::addShop("shop2", session);
+
+			//---------------fill table 
 
 
 
