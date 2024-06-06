@@ -3,10 +3,12 @@
 #include <Wt/Dbo/Dbo.h>
 #include <Wt/Dbo/backend/Postgres.h>
 #include <string>
+#include <set>
 
 using namespace std;
 
-class Book;		//обьявим класс Book
+class Book;		//обьявим класс Book и Sale
+class Sale;
 class Stock;	// class Stock
 //---------------------------------------
 class Publisher
@@ -17,7 +19,7 @@ public:
 	template <class A>
 	void persist(A& a) {
 		Wt::Dbo::field(a, name, "name");
-		Wt::Dbo::hasMany(a, books, Wt::Dbo::ManyToOne, "id_publisher");
+		Wt::Dbo::hasMany(a, books, Wt::Dbo::ManyToOne, "publisher");
 	};
 	static void addPublisher(const string& name, Wt::Dbo::Session& session) {
 		Wt::Dbo::Transaction tr(session);
@@ -32,19 +34,19 @@ class Book
 {
 public:
 	string title{ "" };
-	Wt::Dbo::ptr<Publisher> id_publisher;
+	Wt::Dbo::ptr<Publisher> publisher;
 	Wt::Dbo::collection<Wt::Dbo::ptr<Stock>> stocks;
 	template<class A>
 	void persist(A& a) {
 		Wt::Dbo::field(a, title, "title");
-		Wt::Dbo::belongsTo(a, id_publisher, "id_publisher");
-		Wt::Dbo::hasMany(a, stocks, Wt::Dbo::ManyToOne, "id_book");
+		Wt::Dbo::belongsTo(a, publisher, "publisher");
+		Wt::Dbo::hasMany(a, stocks, Wt::Dbo::ManyToOne, "book");
 	}
 	static void addBook(const string& title, const string& id_publisher, Wt::Dbo::Session& session) {
 		Wt::Dbo::Transaction tr(session);
 		unique_ptr<Book> book{ new Book() };
 		book->title = title;
-		book->id_publisher = session.find<Publisher>().where("name=?").bind(id_publisher);
+		book->publisher = session.find<Publisher>().where("name=?").bind(id_publisher);
 		Wt::Dbo::ptr<Book> p_book = session.add(move(book));
 		tr.commit();
 	}
@@ -59,7 +61,7 @@ public:
 	template <class A>
 	void persist(A& a) {
 		Wt::Dbo::field(a, name, "name");
-		Wt::Dbo::hasMany(a, stocks, Wt::Dbo::ManyToOne, "id_shop");
+		Wt::Dbo::hasMany(a, stocks, Wt::Dbo::ManyToOne, "shop");
 	};
 	static void addShop(const string& name, Wt::Dbo::Session& session) {
 		Wt::Dbo::Transaction tr(session);
@@ -74,19 +76,21 @@ class Stock
 {
 public:
 	int count;
-	Wt::Dbo::ptr<Book> id_book;	
-	Wt::Dbo::ptr<Shop> id_shop;
+	Wt::Dbo::ptr<Book> books;	
+	Wt::Dbo::ptr<Shop> shops;
+	Wt::Dbo::collection<Wt::Dbo::ptr<Sale>> sales;
 	template<class A>
 	void persist(A& a) {
 		Wt::Dbo::field(a, count, "count");
-		Wt::Dbo::belongsTo(a, id_book, "id_book");
-		Wt::Dbo::belongsTo(a, id_shop, "id_shop");
+		Wt::Dbo::belongsTo(a, books, "book");
+		Wt::Dbo::belongsTo(a, shops, "shop");
+		Wt::Dbo::hasMany(a, sales, Wt::Dbo::ManyToOne, "stock");
 	}
 	static void addStock(const string& id_book, const string& id_shop, int count, Wt::Dbo::Session& session) {
 		Wt::Dbo::Transaction tr(session);
 		unique_ptr<Stock> stock{ new Stock() };
-		stock->id_book = session.find<Book>().where("title=?").bind(id_book);
-		stock->id_shop = session.find<Shop>().where("name=?").bind(id_shop);
+		stock->books = session.find<Book>().where("title=?").bind(id_book);
+		stock->shops = session.find<Shop>().where("name=?").bind(id_shop);
 		stock->count = count;
 		Wt::Dbo::ptr<Stock> p_stock = session.add(move(stock));
 		tr.commit();
@@ -105,7 +109,7 @@ public:
 		Wt::Dbo::field(a, count, "count");
 		Wt::Dbo::field(a, price, "price");
 		Wt::Dbo::field(a, date_sale, "date_sale");
-		Wt::Dbo::belongsTo(a, stocks, "id_stock");
+		Wt::Dbo::belongsTo(a, stocks, "stock");
 	}
 	static void addSale(const string& date_sale, int price, int count, int id, Wt::Dbo::Session& session) {
 		Wt::Dbo::Transaction tr(session);
@@ -120,18 +124,31 @@ public:
 };
 //-----------поиск магазинов по имени издателя--------------------------
 //SELECT s.name  FROM shop s					Ломаю голову как его описать через ORM
-//JOIN stock st ON s.id = st.id_shop_id
-//JOIN book b  ON st.id_book_id = b.id
-//JOIN publisher p ON b.id_publisher_id = p.id
+//JOIN stock st ON s.id = st.shop_id
+//JOIN book b  ON st.book_id = b.id
+//JOIN publisher p ON b.publisher_id = p.id
 //where  p.name = 'AAA';
 void TransactPublisher(const string& name_publisher, Wt::Dbo::Session& session) {
 	Wt::Dbo::Transaction tr(session);
+	set<string> str_shop;
 	//Wt::Dbo::collection<Wt::Dbo::ptr<Shop>> shop_collection;
 	//shop_collection = session.find<Shop>().join("stock ON shop.id = stock.id_shop_id").join("book ON stock.id_book_id = book.id")
 	//	.join("publisher ON book.id_publisher_id = publisher.id").where("publisher.name=?").bind(name_publisher);
-	string str = session.query<string>("SELECT s.name  FROM shop s JOIN stock st ON s.id = st.id_shop_id JOIN book b  ON st.id_book_id = b.id "
-		" JOIN publisher p ON b.id_publisher_id = p.id").where("p.name = ?").bind(name_publisher);
-	tr.commit();
+	/*string str = session.query<string>("SELECT s.name  FROM shop s JOIN stock st ON s.id = st.shop_id JOIN book b  ON st.book_id = b.id "
+		" JOIN publisher p ON b.publisher_id = p.id").where("p.name = ?").bind(name_publisher);*/
+	Wt::Dbo::ptr<Publisher> shop = session.find<Publisher>().where("publisher.name = ?").bind(name_publisher);
+	if (shop) {
+		for (const auto book : shop->books) {
+			for (const auto& stock : book->stocks) {
+				str_shop.insert(stock->shops->name);
+			}
+		}
+		for (auto& str : str_shop) {
+			cout << str << endl;
+		}
+		tr.commit();
+	}
+	else cout << "Empty";
 };
 
 
@@ -195,5 +212,4 @@ int main()
 	{
 		cout << e.what();
 	}
-    std::cout << "Hello World!\n";
 }
