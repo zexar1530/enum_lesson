@@ -36,8 +36,9 @@ int main()
 }
 
 void FuncSwapLock(Data& data1, Data& data2) {
-    data1.m.lock();
-    data2.m.lock();
+    //data1.m.lock();
+    //data2.m.lock();
+    lock(data1.m, data2.m); //захватываем оба одновременно
     int tmp = data1.number;
     data1.number = data2.number;
     data2.number = tmp;
