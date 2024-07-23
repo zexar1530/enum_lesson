@@ -23,6 +23,13 @@ static inline void f2() {
     cout << "Function 2 ";
 }
 
+static inline void f3(bool _done) {
+    this_thread::sleep_for(200ms);
+    for (unsigned int i{}; i < 10000; i++)
+        i += 100;
+    cout << "Function 3 ";
+}
+
 template<class Func>    // класс потокобезопасной очереди
 class safe_queue {
 public:
@@ -72,13 +79,17 @@ public:
     }
 
     template<class Func>        //принимаем функцию и отправляем в очередь
-    void submit(Func f) {
+    void submit(Func f, bool _done = false) {
         work_queue.push(function<void()> (f));
     }
 
     void poolJoin() {
         for (auto& t : threads)
             t.join();
+    }
+
+    inline void stop() {
+        done = true;
     }
 
 private:
@@ -88,8 +99,8 @@ private:
     vector<thread> threads; //наши потоки
 
     void work() {
-        /*while (!done) {*/             //Посоветуйте как выйти из цикла потоков
-        for (int i{}; i < 10; i++) {
+        while (!done && !work_queue.empty()) {             //Посоветуйте как выйти из цикла потоков
+        /*for (int i{}; i < 10; i++) {*/
             if (!work_queue.empty()) {  //если очередь не пуста то работаем
                 work_queue.front();     //заспускаем функцию
                 unique_lock<mutex> l(m);
@@ -115,6 +126,7 @@ int main()
         pool.submit(f1);
         pool.submit(f2);
         pool.poolJoin();
+        pool.stop();
     }
     this_thread::sleep_for(5000ms);
     cout << "end!!!!!!!!\n";
