@@ -3,6 +3,7 @@
 #include <string>
 #include <algorithm>
 #include <vector>
+#include <ostream>
 
 class Text {
 public:
@@ -14,13 +15,13 @@ public:
 
 class DecoratedText : public Text {
 public:
-    explicit DecoratedText(Text* text) : text_(text) {}
-    Text* text_;
+    explicit DecoratedText(std::shared_ptr<Text> text) : text_(text) {}
+    std::shared_ptr<Text> text_;
 };
 
 class Paragraph :public DecoratedText {
 public:
-    Paragraph(Text* text) :DecoratedText(text) {}
+    Paragraph(std::shared_ptr<Text> text) :DecoratedText(text) {}
     void render(const std::string& data) const override {
         std::cout << "<p>";
         text_->render(data);
@@ -30,7 +31,7 @@ public:
 
 class Reversed :DecoratedText {
 public:
-    Reversed(Text* text) :DecoratedText(text) {}
+    Reversed(std::shared_ptr<Text> text) :DecoratedText(text) {}
     void render(const std::string& data) const override {
         std::string d_cout{ data }; //с const пришлось повозится)))). Не сразу понял в чем подвох
         std::reverse(d_cout.begin(),d_cout.end());
@@ -40,7 +41,7 @@ public:
 
 class Link :DecoratedText {
 public:
-    Link(Text* text) :DecoratedText(text) {}
+    Link(std::shared_ptr<Text> text) :DecoratedText(text) {}
     void render(const std::string& addr, const std::string& data) const { //перегрузили
         std::cout << "<a href=" << addr << ">" << data << "</a>";
     }
@@ -48,7 +49,7 @@ public:
 
 class ItalicText : public DecoratedText {
 public:
-    explicit ItalicText(Text* text) : DecoratedText(text) {}
+    explicit ItalicText(std::shared_ptr<Text> text) : DecoratedText(text) {}
     void render(const std::string& data)  const {
         std::cout << "<i>";
         text_->render(data);
@@ -59,7 +60,7 @@ public:
 
 class BoldText : public DecoratedText {
 public:
-    explicit BoldText(Text* text) : DecoratedText(text) {}
+    explicit BoldText(std::shared_ptr<Text> text) : DecoratedText(text) {}
     void render(const std::string& data) const {
         std::cout << "<b>";
         text_->render(data);
@@ -68,21 +69,21 @@ public:
 };
 
 int main() {
-    auto text_block = std::make_shared<BoldText>(new ItalicText(new Text()));
+    auto text_block = std::make_shared<BoldText>(std::make_shared<ItalicText>(std::make_shared<Text>()));
     text_block->render("Hello world");
 
     std::cout << std::endl;
 
-    auto text_block1 = new Paragraph(new Text());
+    auto text_block1 = std::make_shared<Paragraph>(std::make_shared<Text>());
     text_block1->render("Hello world");
 
     std::cout << std::endl;
 
-    auto text_block2 = new Reversed(new Text());
+    auto text_block2 = std::make_shared<Reversed>(std::make_shared<Text>());
     text_block2->render("Hello world");
 
     std::cout << std::endl;
 
-    auto text_block3 = new Link(new Text());
+    auto text_block3 = std::make_shared<Link>(std::make_shared<Text>());
     text_block3->render("netology.ru", "Hello world");
 };
