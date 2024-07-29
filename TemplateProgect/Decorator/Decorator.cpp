@@ -3,7 +3,8 @@
 #include <string>
 #include <algorithm>
 #include <vector>
-#include <ostream>
+#include <sstream>
+#include <iostream>
 
 class Text {
 public:
@@ -17,12 +18,17 @@ class DecoratedText : public Text {
 public:
     explicit DecoratedText(std::shared_ptr<Text> text) : text_(text) {}
     std::shared_ptr<Text> text_;
+protected:
+    std::ostringstream ss;
 };
 
 class Paragraph :public DecoratedText {
 public:
     Paragraph(std::shared_ptr<Text> text) :DecoratedText(text) {}
     void render(const std::string& data) const override {
+        const_cast<Paragraph*>(this).ss << "hjbfkjvbkfbv";// Вот теперь понятен мне смысл const)))))))))
+        //Ujkjdf f; rheujv gjikf))))))
+        //теперь понял как использовать поток!
         std::cout << "<p>";
         text_->render(data);
         std::cout << "</p>";
@@ -86,4 +92,8 @@ int main() {
 
     auto text_block3 = std::make_shared<Link>(std::make_shared<Text>());
     text_block3->render("netology.ru", "Hello world");
+
+    std::ostringstream ss;
+    ss << "hjdfbchjbf";
+    std::cout << ss.str();
 };
