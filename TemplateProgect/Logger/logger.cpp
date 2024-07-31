@@ -20,10 +20,10 @@ public:
 class File : public LogCommand {
 private:
     fstream file;
-    string message; 
+    const string fname;
 public:
-    File() {
-        file.open("logger.txt", fstream::app);
+    File(const string& fname) :fname(fname) {
+        file.open(fname, fstream::app);
         if (!file.is_open()) {
             throw runtime_error("Can't open file!");
         }
@@ -44,7 +44,7 @@ void print(LogCommand& command, const string& message) {
 
 int main() {
     Console console;
-    File file;
+    File file("logger.txt");
 
     print(console, "Console");
     print(file, "File");
