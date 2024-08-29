@@ -35,13 +35,13 @@ public:
 
     QString& get_circle(){
         count++;
-        str = "Circle № " + QString::number(count) + " Time: " + QString::number(timecircle.secsTo(time)) + "sec";
+        str = "Circle № " + QString::number(count) + " Time: " + QString::number(timecircle.secsTo(time)) + "."+QString::number(timecircle.msecsTo(time));
         timecircle = time;
         return str;
     }
 
     void reset_watch(){
-        timer->stop();
+        //timer->stop();
         time.setHMS(0, 0, 0, 0);
         timecircle.setHMS(0, 0, 0, 0);
         count = 0;

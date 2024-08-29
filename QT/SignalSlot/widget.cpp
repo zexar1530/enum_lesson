@@ -46,7 +46,7 @@ void Widget::on_pb_Clear_clicked()
     stopwatch->reset_watch();
     ui->lb_Time->setText("Time");
     ui->textBrowser->clear();
-    ui->pb_Start->setText("Start");
-    ui->pb_Circle->setEnabled(false);
+//    ui->pb_Start->setText("Start");
+//    ui->pb_Circle->setEnabled(false);
 }
 
