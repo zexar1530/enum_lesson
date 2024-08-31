@@ -1,5 +1,0 @@
-C:/Users/zexar/Documents/Мои проекты С++/zexar1530/QT/SignalSlot/out/build/x64-Debug/CMakeFiles/edit_cache.dir
-C:/Users/zexar/Documents/Мои проекты С++/zexar1530/QT/SignalSlot/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
-C:/Users/zexar/Documents/Мои проекты С++/zexar1530/QT/SignalSlot/out/build/x64-Debug/1/CMakeFiles/1.dir
-C:/Users/zexar/Documents/Мои проекты С++/zexar1530/QT/SignalSlot/out/build/x64-Debug/1/CMakeFiles/edit_cache.dir
-C:/Users/zexar/Documents/Мои проекты С++/zexar1530/QT/SignalSlot/out/build/x64-Debug/1/CMakeFiles/rebuild_cache.dir
