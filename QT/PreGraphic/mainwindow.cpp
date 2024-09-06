@@ -43,18 +43,12 @@ QVector<uint32_t> MainWindow::ReadFile(QString path, uint8_t numberChannel)
             mb.setText("Ошибка открытия файла");
             mb.exec();
         }
-    } else {
-        if (!readData.empty()) return readData;
-            //продумать как выйти из функции
-            //А зачем выходить))), дальше считываем
-            //вообще else убрать
     }
-
     QDataStream dataStream;
     dataStream.setDevice(&file);
     dataStream.setByteOrder(QDataStream::LittleEndian);
 
-//    QVector<uint32_t> readData; зачем это здесь?
+    QVector<uint32_t> readData;
     readData.clear();
     uint32_t currentWorld = 0, sizeFrame = 0;
 
