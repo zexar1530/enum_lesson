@@ -62,7 +62,12 @@ void MainWindow::SetDataReply(QString replyString)
 
 void MainWindow::DisplayStat(StatServer stat)
 {
-
+    ui->tb_result->append("Time to work server "+ QString::number(stat.workTime));
+    ui->tb_result->append("Clients " + QString::number(stat.clients));
+    ui->tb_result->append("Принято байт " + QString::number(stat.incBytes));
+    ui->tb_result->append("Передано байт " + QString::number(stat.sendBytes));
+    ui->tb_result->append("Передано пакетов " + QString::number(stat.sendPck));
+    ui->tb_result->append("Принято пакетов " + QString::number(stat.revPck));
 }
 
 void MainWindow::DisplayError(uint16_t error)

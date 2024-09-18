@@ -5,6 +5,17 @@
  * Поскольку типы данных не стандартные перегрузим оператор << Для работы с ServiceHeader
 */
 
+QDataStream &operator >>(QDataStream &out, StatServer &data)
+{
+    out >> data.clients;
+    out >> data.incBytes;
+    out >> data.sendBytes;
+    out >> data.sendPck;
+    out >> data.revPck;
+    out >> data.workTime;
+    return out;
+}
+
 QDataStream &operator >>(QDataStream &out, ServiceHeader &data)
 {
 
@@ -37,8 +48,7 @@ TCPclient::TCPclient(QObject *parent) : QObject(parent)
     connect(socket, &QTcpSocket::disconnected, this, &TCPclient::sig_Disconnected); //разьединяем
     connect(socket, &QTcpSocket::connected, this, [&](){emit sig_connectStatus(STATUS_SUCCESS);});  //соединились хорошо
     connect(socket, &QTcpSocket::errorOccurred, this, [&](){emit sig_connectStatus(ERR_CONNECT_TO_HOST);}); //а здесь плохо
-    // ВОПРОС.....а можно вместо лямбды указаьть this, &TcpSocket::sig_connectStatus(ERR_CONNECT_TO_HOST)
-    // странно что не получается!? почему нельзя использовать в сигнале параметры?
+
 }
 /* write
  * Метод отправляет запрос на сервер. Сериализировать будем
@@ -159,7 +169,12 @@ void TCPclient::ProcessingData(ServiceHeader header, QDataStream &stream)
         emit sig_sendFreeSize(size);
         break;
     }
-    case GET_STAT: //Блин это опять перегружать >> << только для StatServer?
+    case GET_STAT:
+    {
+        StatServer statServ;
+        stream >> statServ;
+        emit sig_sendStat(statServ);
+    }
     case SET_DATA:
     {
         QString str;
