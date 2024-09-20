@@ -38,6 +38,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(client, &TCPclient::sig_sendTime, this, &MainWindow::DisplayTime);
     connect(client, &TCPclient::sig_sendFreeSize, this, &MainWindow::DisplayFreeSpace);
     connect(client, &TCPclient::sig_SendReplyForSetData, this, &MainWindow::SetDataReply);
+    connect(client, &TCPclient::sig_sendStat, this, &MainWindow::DisplayStat);
 }
 
 MainWindow::~MainWindow()
