@@ -3,6 +3,8 @@
 #include <vector>
 #include <algorithm>
 
+#include <tgbot/tgbot.h>
+
 using namespace std;
 
 //вывод сделал двумя способами, можно сделать и через Std::function.
