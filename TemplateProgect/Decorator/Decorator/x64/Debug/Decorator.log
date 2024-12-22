@@ -1,0 +1,5 @@
+﻿  Decorator.cpp
+C:\Users\zexar\Documents\Мои проекты С++\zexar1530\TemplateProgect\Decorator\Decorator.cpp(29,9): error C2440: const_cast: невозможно преобразовать "const Paragraph" в "Paragraph *"
+  C:\Users\zexar\Documents\Мои проекты С++\zexar1530\TemplateProgect\Decorator\Decorator.cpp(29,9):
+  Для преобразования требуется конструктор или оператор пользовательского преобразования, который не может использоваться const_cast или reinterpret_cast
+  

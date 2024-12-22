@@ -1,0 +1,184 @@
+﻿  ORM_lession.cpp
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\SqlTraits.h(266,15): warning C4251: Wt::Dbo::FieldInfo::name_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::FieldInfo"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2337,7):
+   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\SqlTraits.h(266,22): warning C4251: Wt::Dbo::FieldInfo::sqlType_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::FieldInfo"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2337,7):
+   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\SqlTraits.h(266,32): warning C4251: Wt::Dbo::FieldInfo::qualifier_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::FieldInfo"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2337,7):
+   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\SqlTraits.h(267,15): warning C4251: Wt::Dbo::FieldInfo::foreignKeyName_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::FieldInfo"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2337,7):
+   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\SqlTraits.h(267,32): warning C4251: Wt::Dbo::FieldInfo::foreignKeyTable_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::FieldInfo"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2337,7):
+   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\Query.h(272,15): warning C4251: Wt::Dbo::AbstractQuery::join_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::AbstractQuery"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2337,7):
+   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\Query.h(272,22): warning C4251: Wt::Dbo::AbstractQuery::where_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::AbstractQuery"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2337,7):
+   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\Query.h(272,30): warning C4251: Wt::Dbo::AbstractQuery::groupBy_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::AbstractQuery"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2337,7):
+   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\Query.h(272,40): warning C4251: Wt::Dbo::AbstractQuery::having_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::AbstractQuery"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2337,7):
+   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\Query.h(272,49): warning C4251: Wt::Dbo::AbstractQuery::orderBy_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::AbstractQuery"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2337,7):
+   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\Query.h(283,38): warning C4251: Wt::Dbo::AbstractQuery::parameters_: class "std::vector<Wt::Dbo::Impl::ParameterBase *,std::allocator<Wt::Dbo::Impl::ParameterBase *>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::AbstractQuery"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(436,7):
+   см. объявление "std::vector<Wt::Dbo::Impl::ParameterBase *,std::allocator<Wt::Dbo::Impl::ParameterBase *>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\SqlConnection.h(317,16): warning C4251: Wt::Dbo::SqlConnection::statementCache_: class "std::multimap<std::string,std::unique_ptr<Wt::Dbo::SqlStatement,std::default_delete<Wt::Dbo::SqlStatement>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::unique_ptr<Wt::Dbo::SqlStatement,std::default_delete<Wt::Dbo::SqlStatement>>>>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::SqlConnection"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\map(456,7):
+   см. объявление "std::multimap<std::string,std::unique_ptr<Wt::Dbo::SqlStatement,std::default_delete<Wt::Dbo::SqlStatement>>,std::less<std::string>,std::allocator<std::pair<const std::string,std::unique_ptr<Wt::Dbo::SqlStatement,std::default_delete<Wt::Dbo::SqlStatement>>>>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\SqlConnection.h(318,38): warning C4251: Wt::Dbo::SqlConnection::properties_: class "std::map<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const std::string,std::string>>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::SqlConnection"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\map(72,7):
+   см. объявление "std::map<std::string,std::string,std::less<std::string>,std::allocator<std::pair<const std::string,std::string>>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\SqlConnection.h(319,28): warning C4251: Wt::Dbo::SqlConnection::statefulSql_: class "std::vector<std::string,std::allocator<std::string>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::SqlConnection"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(436,7):
+   см. объявление "std::vector<std::string,std::allocator<std::string>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\Session.h(38,21): warning C4251: Wt::Dbo::Impl::SetInfo::joinName: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами struct "Wt::Dbo::Impl::SetInfo"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2337,7):
+   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\Session.h(39,21): warning C4251: Wt::Dbo::Impl::SetInfo::joinSelfId: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами struct "Wt::Dbo::Impl::SetInfo"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2337,7):
+   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\Session.h(39,33): warning C4251: Wt::Dbo::Impl::SetInfo::joinOtherId: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами struct "Wt::Dbo::Impl::SetInfo"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2337,7):
+   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\Session.h(56,21): warning C4251: Wt::Dbo::Impl::MappingInfo::naturalIdFieldName: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами struct "Wt::Dbo::Impl::MappingInfo"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2337,7):
+   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\Session.h(59,21): warning C4251: Wt::Dbo::Impl::MappingInfo::idCondition: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами struct "Wt::Dbo::Impl::MappingInfo"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2337,7):
+   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\Session.h(61,32): warning C4251: Wt::Dbo::Impl::MappingInfo::fields: class "std::vector<Wt::Dbo::FieldInfo,std::allocator<Wt::Dbo::FieldInfo>>" должен иметь dll-интерфейс для использования клиентами struct "Wt::Dbo::Impl::MappingInfo"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(436,7):
+   см. объявление "std::vector<Wt::Dbo::FieldInfo,std::allocator<Wt::Dbo::FieldInfo>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\Session.h(62,30): warning C4251: Wt::Dbo::Impl::MappingInfo::sets: class "std::vector<Wt::Dbo::Impl::SetInfo,std::allocator<Wt::Dbo::Impl::SetInfo>>" должен иметь dll-интерфейс для использования клиентами struct "Wt::Dbo::Impl::MappingInfo"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(436,7):
+   см. объявление "std::vector<Wt::Dbo::Impl::SetInfo,std::allocator<Wt::Dbo::Impl::SetInfo>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\Session.h(64,34): warning C4251: Wt::Dbo::Impl::MappingInfo::statements: class "std::vector<std::string,std::allocator<std::string>>" должен иметь dll-интерфейс для использования клиентами struct "Wt::Dbo::Impl::MappingInfo"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(436,7):
+   см. объявление "std::vector<std::string,std::allocator<std::string>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\Session.h(510,23): warning C4251: Wt::Dbo::Session::longlongType_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::Session"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2337,7):
+   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\Session.h(511,23): warning C4251: Wt::Dbo::Session::intType_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::Session"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2337,7):
+   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\Session.h(557,17): warning C4251: Wt::Dbo::Session::classRegistry_: class "std::map<Wt::Dbo::Session::const_typeinfo_ptr,Wt::Dbo::Impl::MappingInfo *,Wt::Dbo::Session::typecomp,std::allocator<std::pair<const Wt::Dbo::Session::const_typeinfo_ptr,Wt::Dbo::Impl::MappingInfo *>>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::Session"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\map(72,7):
+   см. объявление "std::map<Wt::Dbo::Session::const_typeinfo_ptr,Wt::Dbo::Impl::MappingInfo *,Wt::Dbo::Session::typecomp,std::allocator<std::pair<const Wt::Dbo::Session::const_typeinfo_ptr,Wt::Dbo::Impl::MappingInfo *>>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\Session.h(558,17): warning C4251: Wt::Dbo::Session::tableRegistry_: class "std::map<std::string,Wt::Dbo::Impl::MappingInfo *,std::less<std::string>,std::allocator<std::pair<const std::string,Wt::Dbo::Impl::MappingInfo *>>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::Session"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\map(72,7):
+   см. объявление "std::map<std::string,Wt::Dbo::Impl::MappingInfo *,std::less<std::string>,std::allocator<std::pair<const std::string,Wt::Dbo::Impl::MappingInfo *>>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\Session.h(564,29): warning C4251: Wt::Dbo::Session::objectsToAdd_: class "std::vector<Wt::Dbo::MetaDboBase *,std::allocator<Wt::Dbo::MetaDboBase *>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::Session"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(436,7):
+   см. объявление "std::vector<Wt::Dbo::MetaDboBase *,std::allocator<Wt::Dbo::MetaDboBase *>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\Session.h(565,34): warning C4251: Wt::Dbo::Session::connection_: class "std::unique_ptr<Wt::Dbo::SqlConnection,std::default_delete<Wt::Dbo::SqlConnection>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::Session"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\memory(3172,7):
+   см. объявление "std::unique_ptr<Wt::Dbo::SqlConnection,std::default_delete<Wt::Dbo::SqlConnection>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\DbAction.h(63,15): warning C4251: Wt::Dbo::InitSchema::foreignKeyTable_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::InitSchema"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2337,7):
+   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\DbAction.h(63,33): warning C4251: Wt::Dbo::InitSchema::foreignKeyName_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::InitSchema"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2337,7):
+   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\Exception.h(24,41): warning C4275: class "std::runtime_error", не являющийся dll-интерфейсом, использован в качестве базового для dll-интерфейса class "Wt::Dbo::Exception"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\stdexcept(100,19):
+   см. объявление "std::runtime_error"
+  C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\Exception.h(24,17):
+   см. объявление "Wt::Dbo::Exception"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\Exception.h(44,15): warning C4251: Wt::Dbo::Exception::code_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::Exception"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2337,7):
+   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\backend\Postgres.h(160,15): warning C4251: Wt::Dbo::backend::Postgres::connInfo_: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::backend::Postgres"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xstring(2337,7):
+   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\backend\Postgres.h(162,29): warning C4251: Wt::Dbo::backend::Postgres::timeout_: class "std::chrono::duration<__int64,std::micro>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::backend::Postgres"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\__msvc_chrono.hpp(81,11):
+   см. объявление "std::chrono::duration<__int64,std::micro>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\backend\Postgres.h(163,24): warning C4251: Wt::Dbo::backend::Postgres::maximumLifetime_: class "std::chrono::duration<__int64,std::ratio<1,1>>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::backend::Postgres"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\__msvc_chrono.hpp(81,11):
+   см. объявление "std::chrono::duration<__int64,std::ratio<1,1>>"
+  
+C:\Program Files\Wt 4.10.4 msvs2022 x64\include\Wt\Dbo\backend\Postgres.h(164,41): warning C4251: Wt::Dbo::backend::Postgres::connectTime_: class "std::chrono::time_point<std::chrono::steady_clock,std::chrono::nanoseconds>" должен иметь dll-интерфейс для использования клиентами class "Wt::Dbo::backend::Postgres"
+  (компиляция исходного файла "ORM_lession.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\__msvc_chrono.hpp(190,11):
+   см. объявление "std::chrono::time_point<std::chrono::steady_clock,std::chrono::nanoseconds>"
+  
+  ORM_lession.vcxproj -> C:\Users\zexar\Documents\Мои проекты С++\zexar1530\Base Data\ORM\ORM_lession\x64\Debug\ORM_lession.exe

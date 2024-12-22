@@ -1,0 +1,3 @@
+﻿  ConsoleApplication1.cpp
+C:\Users\zexar\Documents\Мои проекты С++\zexar1530\ServerClient\ConsoleApplication1\ConsoleApplication1.cpp(69,7): warning C4101: buffer: неиспользованная локальная переменная
+  ConsoleApplication1.vcxproj -> C:\Users\zexar\Documents\Мои проекты С++\zexar1530\ServerClient\ConsoleApplication1\x64\Debug\ConsoleApplication1.exe

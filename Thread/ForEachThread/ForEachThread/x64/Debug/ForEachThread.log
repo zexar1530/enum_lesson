@@ -1,0 +1,12 @@
+﻿  ForEachThread.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\mutex(568,17): error C2064: результатом вычисления фрагмента не является функция, принимающая 0 аргументов
+  (компиляция исходного файла "ForEachThread.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\mutex(568,17):
+  контекст создания экземпляра шаблона (сначала самый старый)
+  	C:\Users\zexar\Documents\Мои проекты С++\zexar1530\Thread\ForEachThread\ForEachThread.cpp(93,11):
+  	выполняется компиляция ссылки на экземпляр шаблон функции "void std::condition_variable::wait<bool>(std::unique_lock<std::mutex> &,_Predicate)"
+          with
+          [
+              _Predicate=bool
+          ]
+  

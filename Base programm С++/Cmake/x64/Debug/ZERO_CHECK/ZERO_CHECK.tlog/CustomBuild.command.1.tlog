@@ -1,0 +1,10 @@
+^C:\USERS\ZEXAR\DOCUMENTS\МОИ ПРОЕКТЫ С++\ZEXAR1530\CMAKE\CMAKEFILES\690D130C85B3E2015ED5C627A67DAC7D\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/zexar/Documents/Мои проекты С++/zexar1530/Cmake" "-BC:/Users/zexar/Documents/Мои проекты С++/zexar1530/Cmake" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Users/zexar/Documents/Мои проекты С++/zexar1530/Cmake/myfirstcmake.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

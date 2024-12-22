@@ -1,0 +1,7 @@
+﻿  dll_client.cpp
+C:\Users\zexar\Documents\Мои проекты С++\zexar1530\Static_DLL\2\Dll\leaver.h(22,10): warning C4251: Dynamic::Leaver::name: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "Dynamic::Leaver"
+  (компиляция исходного файла "dll_client.cpp")
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\xstring(5127,29):
+   см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+  
+  Client_dll.vcxproj -> C:\Users\zexar\Documents\Мои проекты С++\zexar1530\Static_DLL\2\Dll\x64\Debug\Client_dll.exe
