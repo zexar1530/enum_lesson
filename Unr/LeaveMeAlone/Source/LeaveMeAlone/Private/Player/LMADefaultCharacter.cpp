@@ -81,8 +81,10 @@ void ALMADefaultCharacter::MoveRight(float Value)
 void ALMADefaultCharacter::MoveZoom(float Value) {
 	if (Value != 0.0f)
 	{
-		if (((ArmLength + (Value * ZoomStep)) <= MaxZoom) && ((ArmLength + (Value * ZoomStep)) >= MinZoom))
+		/*if (((ArmLength + (Value * ZoomStep)) <= MaxZoom) || ((ArmLength + (Value * ZoomStep)) >= MinZoom))
 			ArmLength = ArmLength + (Value * ZoomStep);
+		SpringArmComponent->TargetArmLength = ArmLength;*/
+		ArmLength = FMath::Clamp((ArmLength + (Value * ZoomStep)), MinZoom, MaxZoom);
 		SpringArmComponent->TargetArmLength = ArmLength;
 	}
 }
