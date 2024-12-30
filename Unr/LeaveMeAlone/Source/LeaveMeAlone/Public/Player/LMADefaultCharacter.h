@@ -8,6 +8,8 @@
 
 class UCameraComponent;
 class USpringArmComponent;
+class ULMAHealthComponent;
+class UAnimMontage;
 
 UCLASS()
 class LEAVEMEALONE_API ALMADefaultCharacter : public ACharacter
@@ -17,7 +19,22 @@ class LEAVEMEALONE_API ALMADefaultCharacter : public ACharacter
 public:
 	ALMADefaultCharacter();
 
+	UFUNCTION()
+	ULMAHealthComponent* GetHealthComponent() const { return HealthComponent; } 
+
+	UFUNCTION(BlueprintCallable, Category = "Character")
+	float GetStamina() const { return Stamina; };
+
+	UFUNCTION(BlueprintCallable, Category = "Character")
+	float GetSprinting() const { return IsSprinting; };
+
 protected:
+	UPROPERTY(EditDefaultsOnly, Category = "Animation")
+	UAnimMontage* DeathMontage;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components|Health")
+	ULMAHealthComponent* HealthComponent;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
 	USpringArmComponent* SpringArmComponent;
 
@@ -32,6 +49,18 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Cursor")
 	FVector CursorSize = FVector(20.0f, 40.0f, 40.0f);
+
+	UPROPERTY(EditDefaultsOnly, Category = "Components|Stamina")
+	float MaxStamina = 100.0f;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Components|Stamina")
+	float StaminaDrainRate = 20.0f;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Components|Stamina")
+	float StaminaRecoveryRate = 10.0f;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components|Stamina")
+	bool IsSprinting = false;
 
 	virtual void BeginPlay() override;
 
@@ -52,4 +81,17 @@ private:
 	void MoveForward(float Value);
 	void MoveRight(float Value);
 	void MoveZoom(float Value);
+
+	float DefaultWalkSpeed;
+	float Stamina = 0.0f;
+	bool CanSprint = true;
+
+	void StaminaLogic();
+	void StartSprinting();
+	void StopSprinting();
+
+	void OnDeath();
+	void OnHealthChanged(float NewHealth);
+
+	void RotationPlayerOnCursor();
 };
