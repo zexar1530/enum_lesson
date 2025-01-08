@@ -53,6 +53,6 @@ void ULMAHealthComponent::OnTakeAnyDamage(
 
 	if (IsDead())
 	{
-		OnDeath.Broadcast();
+		On_Death.Broadcast();
 	}
 }

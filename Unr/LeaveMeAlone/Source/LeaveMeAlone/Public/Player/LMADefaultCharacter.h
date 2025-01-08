@@ -10,6 +10,7 @@ class UCameraComponent;
 class USpringArmComponent;
 class ULMAHealthComponent;
 class UAnimMontage;
+class ULMAWeaponComponent;
 
 UCLASS()
 class LEAVEMEALONE_API ALMADefaultCharacter : public ACharacter
@@ -18,6 +19,7 @@ class LEAVEMEALONE_API ALMADefaultCharacter : public ACharacter
 
 public:
 	ALMADefaultCharacter();
+
 
 	UFUNCTION()
 	ULMAHealthComponent* GetHealthComponent() const { return HealthComponent; } 
@@ -28,9 +30,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Character")
 	float GetSprinting() const { return IsSprinting; };
 
+	//UFUNCTION(BlueprintNativeEvent, Category = "Character")
+	void OnDeath();
+
 protected:
-	UPROPERTY(EditDefaultsOnly, Category = "Animation")
-	UAnimMontage* DeathMontage;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components|Health")
 	ULMAHealthComponent* HealthComponent;
@@ -40,6 +43,9 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
 	UCameraComponent* CameraComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components|Weapon")
+	ULMAWeaponComponent* WeaponComponent;
 
 	UPROPERTY()
 	UDecalComponent* CurrentCursor = nullptr;
@@ -61,6 +67,9 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components|Stamina")
 	bool IsSprinting = false;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Animation")
+	UAnimMontage* DeathMontage;
 
 	virtual void BeginPlay() override;
 
@@ -90,8 +99,9 @@ private:
 	void StartSprinting();
 	void StopSprinting();
 
-	void OnDeath();
+	
 	void OnHealthChanged(float NewHealth);
 
 	void RotationPlayerOnCursor();
+
 };
