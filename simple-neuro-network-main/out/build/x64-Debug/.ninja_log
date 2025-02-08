@@ -1,0 +1,5 @@
+# ninja log v6
+25	558	7589107465482209	CMakeFiles/main.dir/main.cpp.obj	9e97b931e35773e0
+13	650	7589107465352199	neuro-network/CMakeFiles/neuro-network.dir/myneuro.cpp.obj	ef3c4b13ea69c164
+651	1058	7589107471732259	neuro-network/neuro-network.lib	4a12f6f809a615f6
+1059	2637	7589107475813718	main.exe	55d2b1d7d424e67c

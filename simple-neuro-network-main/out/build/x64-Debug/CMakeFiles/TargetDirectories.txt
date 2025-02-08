@@ -1,0 +1,6 @@
+C:/Users/zexar/Desktop/simple-neuro-network-main/out/build/x64-Debug/CMakeFiles/main.dir
+C:/Users/zexar/Desktop/simple-neuro-network-main/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+C:/Users/zexar/Desktop/simple-neuro-network-main/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/zexar/Desktop/simple-neuro-network-main/out/build/x64-Debug/neuro-network/CMakeFiles/neuro-network.dir
+C:/Users/zexar/Desktop/simple-neuro-network-main/out/build/x64-Debug/neuro-network/CMakeFiles/edit_cache.dir
+C:/Users/zexar/Desktop/simple-neuro-network-main/out/build/x64-Debug/neuro-network/CMakeFiles/rebuild_cache.dir
