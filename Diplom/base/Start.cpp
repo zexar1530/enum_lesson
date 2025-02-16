@@ -9,7 +9,7 @@ Start::Start(const std::string& str) : configuration(str),
         configuration.readValue("database.password")
     ),
     spider(
-        db,
+        db,                               
         configuration.readValue("spider.url"),
         stoi(configuration.readValue("spider.passage"))
     ),

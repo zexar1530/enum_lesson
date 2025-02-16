@@ -1,6 +1,7 @@
 #pragma once
 
 #include "PostgreDb.h"
+#include "Readconfig.h"
 #include "StaticSpider.h"
 #include <condition_variable>
 #include <queue>
@@ -36,6 +37,5 @@ private:
     int passage;
     int threads_count;
     int work{};
-    //Indexer indexer;
-    PostgreDb& db;
+    PostgreDb& db;   
 };

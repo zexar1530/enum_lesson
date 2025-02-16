@@ -131,17 +131,17 @@ void Spider::worker() {
                 continue;
             }
 
-            int doc_id = db.insertDoc(task.addr, content);
-            auto word_count = index(content);
-            db.insertWord(word_count, doc_id);
-            if (task.passage < passage - 1) {
-                auto links = StaticSpider::readLinks(content, task.addr);
-                {
-                    addLinks(links, task.passage + 1);
+                int doc_id = db.insertDoc(task.addr, content);
+                auto word_count = index(content);
+                db.insertWord(word_count, doc_id);
+                if (task.passage < passage - 1) {
+                    auto links = StaticSpider::readLinks(content, task.addr);
+                    {
+                        addLinks(links, task.passage + 1);
+                    }
+                    condition.notify_all();
                 }
-                condition.notify_all();
-            }
-
+            
             {
                 lock_guard<mutex> l(LnkMutex);
                 --work;

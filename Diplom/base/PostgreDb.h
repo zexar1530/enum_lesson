@@ -13,7 +13,7 @@ using namespace std;
 
 class PostgreDb {
 private:
-    pqxx::connection* conn;
+    //pqxx::connection* conn;
     string connectionString;
     void initDb();
 

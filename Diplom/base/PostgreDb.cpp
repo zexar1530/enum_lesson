@@ -2,19 +2,20 @@
 
 PostgreDb::PostgreDb(const string& host, const string& port, const string& name, const string& user, const string& pass)
     : connectionString("host=" + host + " port=" + port + " dbname=" + name + " user=" + user + " password=" + pass) {
-    conn = new pqxx::connection(connectionString);
+    /*conn = new pqxx::connection(connectionString);
     if (!conn->is_open())
-        throw runtime_error("Ошибка БД");
+        throw runtime_error("Ошибка БД");*/
     initDb();
-    cout << "Подключились к базе и создали" << endl;
+    //cout << "Подключились к базе и создали" << endl;
 }
 
 PostgreDb::~PostgreDb() {
-    delete conn;
+    //delete conn;
 }
 
 void PostgreDb::initDb() {
-    pqxx::work create_table(*conn);
+    pqxx::connection conn(connectionString);
+    pqxx::work create_table(conn);
     create_table.exec(
         "CREATE TABLE IF NOT EXISTS doc ("
         "id SERIAL PRIMARY KEY, "
@@ -35,7 +36,8 @@ void PostgreDb::initDb() {
 
 vector<pair<string, int>> PostgreDb::getDocs(const vector<string>& words) {
     vector<pair<string, int>> total;
-    pqxx::work query(*conn);
+    pqxx::connection conn(connectionString);
+    pqxx::work query(conn);
 
     ostringstream s_query;
     s_query << "SELECT d.addr, SUM(w.count) AS total "
@@ -67,8 +69,10 @@ vector<pair<string, int>> PostgreDb::getDocs(const vector<string>& words) {
 }
 
 int PostgreDb::insertDoc(const std::string& addr, const string& content) {
-    std::string html = content;
-    pqxx::work insert(*conn);
+    string html = content;
+
+    pqxx::connection conn(connectionString);
+    pqxx::work insert(conn);
 
     pqxx::result result = insert.exec(
         "SELECT id FROM doc WHERE addr = " + insert.quote(addr) + ";"
@@ -95,7 +99,8 @@ int PostgreDb::insertDoc(const std::string& addr, const string& content) {
 }
 
 void PostgreDb::insertWord(const vector<pair<string, int>>& word_count, int doc_id) {
-    pqxx::work insert(*conn);
+    pqxx::connection conn(connectionString);
+    pqxx::work insert(conn);
 
     insert.exec(
         "DELETE FROM words WHERE doc_id = " + insert.quote(doc_id) + ";"
