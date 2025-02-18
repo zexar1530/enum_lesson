@@ -56,14 +56,13 @@ void Serv::accept() {
 void Serv::checkDeadline() {
     auto self = shared_from_this();
 
-    deadline.async_wait(
-        [self](beast::error_code ec)
-        {
-            if (!ec)
-            {
-                self->socket.close(ec);
-            }
-        });
+    deadline.expires_after(std::chrono::seconds(5));
+    deadline.async_wait([self](beast::error_code ec) {
+        if (!ec && self->socket.is_open()) {
+            beast::error_code close_ec;
+            self->socket.close(close_ec);
+        }
+    });
 }
 
 void Serv::readRequest() {

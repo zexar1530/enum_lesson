@@ -31,7 +31,7 @@ void Start::run() {
         http_serv->stop();
 
         if (spiWorker.joinable()) {
-            spiWorker.join();
+            spiWorker.detach();
         }
 
         if (serWorker.joinable()) {

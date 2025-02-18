@@ -68,7 +68,7 @@ string StaticSpider::readHtml(const Links& addr) {
             
             beast::ssl_stream<beast::tcp_stream> stream(ioc, sslContext);
             tcp::resolver resolver(ioc);
-            auto const results = resolver.resolve(addr.hostName, "443");
+            auto const results = resolver.resolve(addr.hostName, "https");
 
             beast::get_lowest_layer(stream).connect(results);
             if (!SSL_set_tlsext_host_name(stream.native_handle(), addr.hostName.c_str())) {
@@ -99,7 +99,7 @@ string StaticSpider::readHtml(const Links& addr) {
             req.set(http::field::host, addr.hostName);
             req.set(http::field::user_agent, BOOST_BEAST_VERSION_STRING);
 
-            http::write(stream, req);
+            http::write(stream, req);   //---------
  
             beast::flat_buffer buffer;
             http::response<http::string_body> res;
