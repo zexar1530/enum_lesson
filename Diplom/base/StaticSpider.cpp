@@ -85,7 +85,7 @@ string StaticSpider::readHtml(const Links& addr) {
             int redirects = 0;
             http::response<http::dynamic_body> res;
 
-            while (redirects++ < 3) {
+            while (redirects++ < 1) {                   //---------
                 http::write(stream, req);
                 beast::flat_buffer buffer;
                 http::read(stream, buffer, res);
@@ -97,29 +97,38 @@ string StaticSpider::readHtml(const Links& addr) {
                 if (auto location = res.find(http::field::location); location != res.end()) {
                     string new_url = location->value();
                     Links new_addr = parse(new_url);
+                    beast::get_lowest_layer(stream).close();
+                    beast::ssl_stream<beast::tcp_stream>stream1(ioc, sslContext);
+                        if (new_addr.protocol == ProtocolType::HTTPS) {
+                            //beast::ssl_stream<beast::tcp_stream>stream1(ioc, sslContext);
+                            if (!SSL_set_tlsext_host_name(stream1.native_handle(), new_addr.hostName.c_str())) {
+                                beast::error_code ec{ static_cast<int>(::ERR_get_error()), net::error::get_ssl_category() };
+                                throw beast::system_error{ ec };
+                            }
 
-                    //beast::get_lowest_layer(stream).close();
+                            auto const results = resolver.resolve(new_addr.hostName, "443");
+                            beast::get_lowest_layer(stream1).connect(results);
+                            stream1.handshake(net::ssl::stream_base::client);
+                        }
+                        else throw std::runtime_error("HTTP redirects not supported");
 
-                    if (new_addr.protocol == ProtocolType::HTTPS) {
-                        //stream = beast::ssl_stream<beast::tcp_stream>(ioc, sslContext);
-                        if (!SSL_set_tlsext_host_name(stream.native_handle(), new_addr.hostName.c_str())) {
-                            throw beast::system_error(net::error::invalid_argument, "Failed to set SNI host name");
+                        req.set(http::field::host, new_addr.hostName);
+                        req.target(new_addr.query);
+
+
+                        if (res.result() == http::status::see_other) {
+                            req.method(http::verb::get);
+                            req.clear();
+                            req.erase(http::field::content_length);
                         }
 
-                        auto const results = resolver.resolve(new_addr.hostName, "443");
-                        beast::get_lowest_layer(stream).connect(results);
-                        stream.handshake(net::ssl::stream_base::client);
-                    } else throw std::runtime_error("HTTP redirects not supported");
+                        http::write(stream1, req);
+                        http::read(stream1, buffer, res);
 
-                    req.set(http::field::host, new_addr.hostName);
-                    req.target(new_addr.query);
-
-                   
-                    if (res.result() == http::status::see_other) {
-                        req.method(http::verb::get);
-                        req.clear();
-                        req.erase(http::field::content_length);
-                    }
+                        if (res.result() < http::status::multiple_choices ||
+                            res.result() >= http::status::bad_request) {
+                            return buffers_to_string(res.body().data());
+                        }
                 } else throw std::runtime_error("Redirect without Location header");
             }
             throw std::runtime_error("Too many redirects");
